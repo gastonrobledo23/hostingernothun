@@ -1,0 +1,26 @@
+/* styles/main.css */
+.latest-posts ul {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .latest-posts ul li {
+    width: 100%;
+  }
+  
+  @media (max-width: 1024px) {
+    .latest-posts ul {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 720px) {
+    .latest-posts ul {
+      grid-template-columns: 1fr;
+    }
+  }
+  
