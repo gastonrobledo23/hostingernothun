@@ -48,6 +48,15 @@ main {
 	margin: auto;
 	padding: 3em 1em;
 }
+.menu a {
+	color: white; /* Color por defecto */
+	transition: color 0.3s ease; /* Suaviza el cambio de color */
+  }
+  
+  .menu a:hover {
+	color: var(--accent); /* Color al pasar el mouse */
+	background-color: rgba(0, 0, 0, 0.2); /* Fondo al hacer hover */
+  }
 h1,
 h2,
 h3,
@@ -76,12 +85,6 @@ h5 {
 strong,
 b {
 	font-weight: 700;
-}
-a {
-	color: var(--accent);
-}
-a:hover {
-	color: var(--accent);
 }
 p {
 	margin-bottom: 1em;
@@ -152,29 +155,3 @@ hr {
 	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
 	white-space: nowrap;
 }
-
-/*ultimos post*/
-.latest-posts ul {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .latest-posts ul li {
-    width: 100%;
-  }
-  
-  @media (max-width: 1024px) {
-    .latest-posts ul {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  
-  @media (max-width: 720px) {
-    .latest-posts ul {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
