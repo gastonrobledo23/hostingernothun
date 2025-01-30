@@ -6,7 +6,6 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import FormattedDate from '../components/FormattedDate.astro';
 // Asegúrate de que posts está definido
 import { getCollection } from 'astro:content';
-import '../styles/global.css';
 
 const posts = await getCollection('blog');
 
@@ -29,9 +28,10 @@ const latestPosts = sortedPosts.slice(0, 4);
 <html lang="en">
 	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4385740960461087"
      crossorigin="anonymous"></script>
+	 <link rel="stylesheet" href="../styles/global.css" />
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<link rel="stylesheet" href="/styles/main.css" />
+		
 	</head>
 	<body>
 		<Header />

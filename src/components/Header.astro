@@ -1,7 +1,6 @@
 ---
 import HeaderLink from './HeaderLink.astro';
-import { SITE_TITLE } from '../consts';
-import '../styles/global.css';
+
 
 ---
 <header class="bg-gradient-to-r from-indigo-600 to-purple-600 shadow-md">
@@ -24,17 +23,27 @@ import '../styles/global.css';
   
 	  <!-- Enlaces del menú (para pantallas grandes) -->
 	  <div class="hidden sm:flex space-x-4">
-		<HeaderLink href="/" class="text-white transition-colors duration-300 hover:bg-indigo-700 active:bg-indigo-800 py-2 px-4 rounded">Home</HeaderLink>
-		<HeaderLink href="/blog" class="text-white transition-colors duration-300 hover:bg-indigo-700 active:bg-indigo-800 py-2 px-4 rounded">Blog</HeaderLink>
-		<HeaderLink href="/about" class="text-white transition-colors duration-300 hover:bg-indigo-700 active:bg-indigo-800 py-2 px-4 rounded">About</HeaderLink>
+		<HeaderLink href="/" class="text-white transition-colors duration-300 hover:bg-indigo-700 active:bg-indigo-800 py-2 px-4 rounded">Inicio</HeaderLink>
+		<HeaderLink href="/blog" class="text-white transition-colors duration-300 hover:bg-indigo-700 active:bg-indigo-800 py-2 px-4 rounded">Noticias</HeaderLink>
+		<HeaderLink href="/tecnologia" class="text-white transition-colors duration-300 hover:bg-indigo-700 active:bg-indigo-800 py-2 px-4 rounded">Tecnologia</HeaderLink>
+		<HeaderLink href="/inteligenciaartificial"class="text-white transition-colors duration-300 hover:bg-indigo-700 active:bg-indigo-800 py-2 px-4 rounded">Inteligencia Artificial</HeaderLink>
+    	<HeaderLink href="/explora"class="text-white transition-colors duration-300 hover:bg-indigo-700 active:bg-indigo-800 py-2 px-4 rounded">Explora</HeaderLink>
+        <HeaderLink href="/aprende"class="text-white transition-colors duration-300 hover:bg-indigo-700 active:bg-indigo-800 py-2 px-4 rounded">Aprende</HeaderLink>
+        <HeaderLink href="/about"class="text-white transition-colors duration-300 hover:bg-indigo-700 active:bg-indigo-800 py-2 px-4 rounded">Contacto</HeaderLink>
+    
 	  </div>
 	</nav>
   
 	<!-- Menú desplegable (para pantallas pequeñas) -->
-	<div id="menu" class="sm:hidden hidden flex-col items-center bg-purple-800 w-full py-4 space-y-4 text-center">
-	  <HeaderLink href="/" class="text-white w-full transition-colors duration-300 hover:bg-indigo-700 active:bg-indigo-800 py-2 px-4 rounded">Home</HeaderLink>
-	  <HeaderLink href="/blog" class="text-white w-full transition-colors duration-300 hover:bg-indigo-700 active:bg-indigo-800 py-2 px-4 rounded">Blog</HeaderLink>
-	  <HeaderLink href="/about" class="text-white w-full transition-colors duration-300 hover:bg-indigo-700 active:bg-indigo-800 py-2 px-4 rounded">About</HeaderLink>
+	<div id="menu" class="sm:hidden flex flex-col items-center bg-purple-800 w-full py-4 space-y-4">
+		<HeaderLink href="/" class="text-white py-2 px-4 rounded">Inicio</HeaderLink>
+		<HeaderLink href="/blog" class="text-white py-2 px-4 rounded">Noticias</HeaderLink>
+		<HeaderLink href="/tecnologia" class="text-white py-2 px-4 rounded">Tecnologia</HeaderLink>
+		<HeaderLink href="/inteligenciaartificial" class="text-white py-2 px-4 rounded">Inteligencia Artificial</HeaderLink>
+		<HeaderLink href="/explora"class="text-white py-2 px-4 rounded">Explora</HeaderLink>
+		<HeaderLink href="/aprende"class="text-white py-2 px-4 rounded">Aprende</HeaderLink>
+		<HeaderLink href="/about"class="text-white py-2 px-4 rounded">Contacto</HeaderLink>
+
 	</div>
   
 	<!-- Scripts -->
