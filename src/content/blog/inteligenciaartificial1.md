@@ -1,8 +1,8 @@
 ---
-title: "Título del Post 5"
-description: "Esta es una descripción breve del Post 1."
+title: "DeepSeek la innovadora IA china que amenaza a ChatGPT"
+description: "DeepSeek es una startup china de inteligencia artificial que ha ganado notoriedad con su modelo DeepSeek-R1, desafiando a gigantes como OpenAI y Google. Con un enfoque eficiente y de código abierto, ha generado impacto global, pero también preocupaciones sobre privacidad, censura y seguridad de datos. Su éxito ha sacudido el mercado tecnológico, marcando un nuevo capítulo en la competencia entre China y EE.UU. en IA."
 pubDate: 2025-02-01
-heroImage: "/public/img4.jpg"
+heroImage: "/public/inteligenciaartificial1a.avif"
 ---
 DeepSeek, una startup china de inteligencia artificial (IA), ha emergido como un competidor formidable en el panorama tecnológico global, desafiando a gigantes como OpenAI y Google. Fundada en 2023 por Liang Wenfeng en Hangzhou, la empresa ha captado la atención mundial con su modelo de lenguaje avanzado, DeepSeek-R1, y su aplicación de chatbot, que ha liderado las descargas en la App Store de Apple en países como China y Estados Unidos.
 
@@ -19,6 +19,7 @@ Impacto en el Mercado Tecnológico Global
 El ascenso de DeepSeek ha tenido repercusiones notables en los mercados financieros. Empresas tecnológicas estadounidenses, como Nvidia, Microsoft y Tesla, experimentaron pérdidas significativas en el valor de sus acciones tras el lanzamiento de DeepSeek-R1, reflejando la preocupación de los inversores sobre la creciente competencia china en el sector de la IA. Este fenómeno ha sido comparado con un "momento Sputnik", sugiriendo un punto de inflexión en la carrera tecnológica entre Estados Unidos y China.
 
 El Visionario Detrás de DeepSeek: Liang Wenfeng
+<img src="/public/inteligenciaartificial1b.avif" alt="DeepSeek y privacidad" width="80%" style="display:block; margin:auto; border-radius:12px;">
 
 Liang Wenfeng, nacido en 1985 en la provincia de Guangdong, es ingeniero eléctrico graduado de la Universidad de Zhejiang. Antes de fundar DeepSeek, cofundó el fondo de cobertura cuantitativo High-Flyer en 2015, donde aplicó algoritmos avanzados y aprendizaje automático en la toma de decisiones financieras. En 2021, anticipándose a las restricciones de exportación de Estados Unidos, adquirió 10,000 procesadores Nvidia H800, sentando las bases para el desarrollo de DeepSeek-R1.
 

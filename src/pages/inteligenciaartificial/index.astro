@@ -7,7 +7,7 @@ import FormattedDate from '../../components/FormattedDate.astro';
 
 // Asegúrate de que posts está definido
 import { getCollection } from 'astro:content';
-const posts = await getCollection('blog');
+const posts = await getCollection('inteligenciaartificial');
 
 // Filtrar y ordenar los posts
 const sortedPosts = posts
@@ -39,7 +39,7 @@ const latestPosts = sortedPosts.slice(0, 4);
 					{
 						posts.map((post) => (
 							<li>
-								<a href={`/blog/${post.id}/`}>
+								<a href={`/inteligenciaartificial/${post.id}`}>
 									<img width={720} height={360} src={post.data.heroImage} alt="" />
 									<h4 class="title">{post.data.title}</h4>
 									<p class="date">
@@ -59,7 +59,7 @@ const latestPosts = sortedPosts.slice(0, 4);
 					{
 					  latestPosts.map((post) => (
 						  <li class="w-full">
-							<a href={`/blog/${post.id}/`}>
+							<a href={`/inteligenciaartificial/${post.id}/`}>
 							  <img class="w-full h-auto mb-4" src={post.data.heroImage} alt={post.data.title} />
 							  <h4 class="text-xl font-semibold">{post.data.title}</h4>
 							  <p class="text-gray-500">

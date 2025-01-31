@@ -14,5 +14,14 @@ const blog = defineCollection({
 		heroImage: z.string().optional(),
 	}),
 });
-
-export const collections = { blog };
+const inteligenciaartificial = defineCollection({
+	loader: glob({ base: './src/content/inteligenciaartificial', pattern: '**/*.{md,mdx}' }),
+	schema: z.object({
+	  title: z.string(),
+	  description: z.string(),
+	  pubDate: z.coerce.date(), // Convierte strings a Date
+	  updatedDate: z.coerce.date().optional(), // Fecha de actualización (opcional)
+	  heroImage: z.string().optional(), // Imagen destacada (opcional)
+	}),
+  });
+export const collections = { blog,inteligenciaartificial, };

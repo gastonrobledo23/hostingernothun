@@ -15,6 +15,16 @@ const postsCollection = defineCollection({
   }),
 });
 
+const inteligenciaartificialCollection = defineCollection({
+  schema: z.object({
+    title: z.string(),
+    date: z.string(),
+    description: z.string(),
+    slug: z.string(),
+  }),
+});
+
 export const collections = {
   posts: postsCollection,
+  inteligenciaartificials:inteligenciaartificialCollection
 };

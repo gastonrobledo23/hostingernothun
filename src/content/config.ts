@@ -8,8 +8,18 @@ const blogCollection = defineCollection({
   }),
 });
 
+const inteligenciaArtificialCollection = defineCollection({
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    date: z.string().or(z.date()), // Manteniendo la compatibilidad con cadenas y fechas
+    heroImage: z.string().optional(),
+  }),
+});
+
 export const collections = {
   blog: blogCollection,
+  inteligenciaartificial: inteligenciaArtificialCollection,
 };
 
 
