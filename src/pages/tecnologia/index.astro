@@ -7,7 +7,7 @@ import FormattedDate from '../../components/FormattedDate.astro';
 
 // Asegúrate de que posts está definido
 import { getCollection } from 'astro:content';
-const posts = await getCollection('blog');
+const posts = await getCollection('tecnologia');
 
 // Filtrar y ordenar los posts
 const sortedPosts = posts
@@ -20,9 +20,7 @@ const sortedPosts = posts
   });
 
 // Toma los 3 últimos posts
-const latestPosts = sortedPosts.slice(0, 4);
-
-
+const latestPosts = sortedPosts.slice(0, 8);
 ---
 
 <!doctype html>
@@ -39,7 +37,7 @@ const latestPosts = sortedPosts.slice(0, 4);
 					{
 						posts.map((post) => (
 							<li>
-								<a href={`/blog/${post.id}/`}>
+								<a href={`/tecnologia/${post.id}/`}>
 									<img width={720} height={360} src={post.data.heroImage} alt="" />
 									<h4 class="title">{post.data.title}</h4>
 									<p class="date">
@@ -53,26 +51,26 @@ const latestPosts = sortedPosts.slice(0, 4);
 			</section>
 			
 			
-			<section class="latest-posts">
-				<h2 class="text-2xl font-bold mb-4">Últimos Posts</h2>
-				<ul class="grid grid-cols-2 gap-8 list-none p-0 m-0 md:grid-cols-2 sm:grid-cols-2 lg:grid-cols-5">
-					{
-					  latestPosts.map((post) => (
-						  <li class="w-full">
-							<a href={`/blog/${post.id}/`}>
-							  <img class="w-full h-auto mb-4" src={post.data.heroImage} alt={post.data.title} />
-							  <h4 class="text-xl font-semibold">{post.data.title}</h4>
-							  <p class="text-gray-500">
-								<FormattedDate date={post.data.pubDate} />
-							  </p>
-							</a>
-						  </li>
-						))
-					}
-				  </ul>
-			  </section>
+			
 		</main>
-
+		<section class="latest-posts m-4">
+			<h2 class="text-2xl font-bold mb-4">Últimos Posts</h2>
+			<ul class="grid grid-cols-2 gap-2 list-none p-0 m-0 md:grid-cols-2 sm:grid-cols-2 lg:grid-cols-4">
+				{
+				  latestPosts.map((post) => (
+					  <li class="w-full">
+						<a href={`/inteligenciaartificial/${post.id}/`}>
+						  <img class="w-full h-42 mb-4" src={post.data.heroImage} alt={post.data.title} />
+						  <h4 class="text-xl font-semibold">{post.data.title}</h4>
+						  <p class="text-gray-500">
+							<FormattedDate date={post.data.pubDate} />
+						  </p>
+						</a>
+					  </li>
+					))
+				}
+			  </ul>
+		  </section>
 		
 		  
 		<Footer />
