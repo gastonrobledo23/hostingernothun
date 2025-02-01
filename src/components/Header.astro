@@ -38,7 +38,11 @@ import HeaderLink from './HeaderLink.astro';
 
 	<!-- Menú desplegable (para pantallas pequeñas) -->
 	<div id="menu" class="sm:hidden fixed top-0 left-0 w-2/3 h-full bg-purple-800 transform -translate-x-full transition-transform ease-in-out duration-300 shadow-lg shadow-white/50">
-	  <div class="flex flex-col items-center py-8 space-y-4">
+	  <div class="mt-4 flex justify-center" >
+		<img class="w-10" src="/img/nothunlogo.png" alt="">
+	  </div>
+
+		<div class="flex flex-col items-center py-8 space-y-4">
 		<HeaderLink href="/" class="text-white py-2 px-4 rounded">Inicio</HeaderLink>
 		<HeaderLink href="/blog" class="text-white py-2 px-4 rounded">Noticias</HeaderLink>
 		<HeaderLink href="/tecnologia" class="text-white py-2 px-4 rounded">Tecnologia</HeaderLink>
@@ -47,6 +51,29 @@ import HeaderLink from './HeaderLink.astro';
 		<HeaderLink href="/aprende" class="text-white py-2 px-4 rounded">Aprende</HeaderLink>
 		<HeaderLink href="/about" class="text-white py-2 px-4 rounded">Contacto</HeaderLink>
 	  </div>
+	  
+	<div class="flex justify-center gap-x-4 mt-4">
+
+		<a href="https://www.instagram.com/@nothun.ai">
+			<img class="h-10" src="../../public/img/nothuninstagram.avif" alt="">
+		</a>
+		
+		<a href="https://www.tiktok.com/@nothun.ai" target="_blank">
+			<img class="h-10" src="../../public/img/nothuntiktok.avif" alt="">
+		</a>
+		<a href="https://twitter.com/nothun_ai" target="_blank">
+			<img class="h-10" src="../../public/img/nothunx.avif" alt="">
+		
+		<a href="https://www.youtube.com/@nothunai" target="_blank">
+			<img class="h-10" src="../../public/img/nothunyoutube.avif" alt="">
+		
+		</a>
+		<a href="https://www.facebook.com/nothunyt" target="_blank">
+			<img class="h-10" src="../../public/img/nothunfacebook.avif" alt="">
+				  
+		</a>
+
+	</div>
 	</div>
   
 	<!-- Scripts -->
