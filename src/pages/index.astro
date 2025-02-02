@@ -4,7 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import FormattedDate from '../components/FormattedDate.astro';
-
+import Carousel from "../components/Carousel.astro";
 // Asegúrate de que posts está definido
 import { getCollection } from 'astro:content';
 const posts = await getCollection('blog');
@@ -31,11 +31,15 @@ const latestPosts = sortedPosts.slice(0, 4);
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4385740960461087"
      crossorigin="anonymous"></script>
+
 	</head>
 	<body>
 		<Header />
+		
 		<main>
+			
 			<section>
+				<Carousel />
 				<ul>
 					{
 						posts.map((post) => (
@@ -55,7 +59,7 @@ const latestPosts = sortedPosts.slice(0, 4);
 			
 		</main>
 		<section class="latest-posts m-4">
-			<h2 class="text-2xl font-bold mb-4">Últimos Posts</h2>
+			<h2 class="text-2xl font-bold mb-4 content-center">Últimos Posts</h2>
 			<ul class="grid grid-cols-2 gap-2 list-none p-0 m-0 md:grid-cols-2 sm:grid-cols-2 lg:grid-cols-4">
 				{
 				  latestPosts.map((post) => (

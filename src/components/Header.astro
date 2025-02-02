@@ -3,6 +3,14 @@ import HeaderLink from './HeaderLink.astro';
 
 
 ---
+<style>
+	#menu {
+  z-index: 20; /* Menú por encima del contenido */
+}
+#overlay {
+  z-index: 10; /* Overlay encima del contenido pero debajo del menú */
+}
+</style>
 <header class="bg-gradient-to-r from-indigo-600 to-purple-600 shadow-md">
 	<nav class="flex justify-between items-center p-4">
 	  <!-- Logo centrado en móviles y tablets -->
@@ -55,21 +63,21 @@ import HeaderLink from './HeaderLink.astro';
 	<div class="flex justify-center gap-x-4 mt-4">
 
 		<a href="https://www.instagram.com/@nothun.ai">
-			<img class="h-10" src="../../public/img/nothuninstagram.avif" alt="">
+			<img class="h-10" src="/img/nothuninstagram.avif" alt="">
 		</a>
 		
 		<a href="https://www.tiktok.com/@nothun.ai" target="_blank">
-			<img class="h-10" src="../../public/img/nothuntiktok.avif" alt="">
+			<img class="h-10" src="/img/nothuntiktok.avif" alt="">
 		</a>
 		<a href="https://twitter.com/nothun_ai" target="_blank">
-			<img class="h-10" src="../../public/img/nothunx.avif" alt="">
+			<img class="h-10" src="/img/nothunx.avif" alt="">
 		
 		<a href="https://www.youtube.com/@nothunai" target="_blank">
-			<img class="h-10" src="../../public/img/nothunyoutube.avif" alt="">
+			<img class="h-10" src="/img/nothunyoutube.avif" alt="">
 		
 		</a>
 		<a href="https://www.facebook.com/nothunyt" target="_blank">
-			<img class="h-10" src="../../public/img/nothunfacebook.avif" alt="">
+			<img class="h-10" src="/img/nothunfacebook.avif" alt="">
 				  
 		</a>
 

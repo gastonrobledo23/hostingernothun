@@ -1,0 +1,74 @@
+---
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/autoplay";
+
+const noticias = [
+  { titulo: "DeepSeek desafía a OpenAI", imagen: "/img/tecnologia/tecnologia1a.avif", enlace: "/tecnologia/tecnologia1/" },
+  { titulo: "Nuevas IA revolucionarias", imagen: "/inteligenciaartificial2a.avif", enlace: "/blog/inteligenciaartificial2/" },
+  { titulo: "El futuro de la IA en 2025", imagen: "/inteligenciaartificial5a.avif", enlace: "/blog/inteligenciaartificial5/" }
+];
+---
+
+<style>
+  /* Estilo para los botones de navegación */
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: white !important;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+  }
+
+  .swiper-button-next:hover,
+  .swiper-button-prev:hover {
+    color: #f0f0f0;
+  }
+   /* Aumentar la altura de las imágenes */
+  .swiper-slide img {
+    height: 50vh; /* Altura ajustable según lo que necesites */
+  }
+  /* Limitar el tamaño máximo del carrusel */
+  .swiper-container {
+    max-width: 700px;
+    margin: 0 auto; /* Centrar el carrusel */
+    padding-top: 20px;
+  }
+</style>
+
+<div class="swiper mySwiper swiper-container">
+  <div class="swiper-wrapper">
+    {noticias.map(noticia => (
+      <div class="swiper-slide">
+        <a href={noticia.enlace}>
+          <img src={noticia.imagen} alt={noticia.titulo} class="w-full h-64 object-cover rounded-lg shadow-md" />
+          <h3 class="mt-2 text-lg font-bold text-center text-white">{noticia.titulo}</h3>
+        </a>
+      </div>
+    ))}
+  </div>
+
+  <!-- Botones de navegación -->
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+
+  <!-- Paginación -->
+  <div class="swiper-pagination"></div>
+</div>
+
+<!-- Script para inicializar Swiper -->
+<script>
+  import Swiper from 'swiper';
+  import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+
+  document.addEventListener("DOMContentLoaded", function () {
+    new Swiper(".mySwiper", {
+      modules: [Navigation, Pagination, Autoplay],
+      slidesPerView: 1,
+      spaceBetween: 20,
+      navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+      pagination: { el: ".swiper-pagination", clickable: true },
+      loop: true,
+      autoplay: { delay: 3000 },
+    });
+  });
+</script>
