@@ -19,7 +19,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} /> {/* Ruta de registro */}
+        <Route path="/register" element={<Register />} /> 
         <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
         <Route path="*" element={<Navigate to="/login" />} />
       </Routes>

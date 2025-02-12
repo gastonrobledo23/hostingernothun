@@ -10,21 +10,26 @@ import {
 
 import type { User } from "firebase/auth"; // ✅ Importar User como type
 import { getFirestore } from "firebase/firestore";//enlazado con dahsboard,app,
-// Configuración de Firebase
+// Configuración de Firebasee
 const firebaseConfig = {
-  apiKey: import.meta.env.PUBLIC_FIREBASE_API_KEY,
-  authDomain: import.meta.env.PUBLIC_FIREBASE_AUTH_DOMAIN,
-  projectId: import.meta.env.PUBLIC_FIREBASE_PROJECT_ID,
-  storageBucket: import.meta.env.PUBLIC_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.PUBLIC_FIREBASE_APP_ID,
-  measurementId: import.meta.env.PUBLIC_FIREBASE_MEASUREMENT_ID,
+  apiKey: "AIzaSyDpdNLr9o2AL5w0EvncXFHcmfWhp_IS2Wo",
+  authDomain: "basenothun.firebaseapp.com",
+  projectId: "basenothun",
+  storageBucket: "basenothun.firebasestorage.app",
+  messagingSenderId: "486885299929",
+  appId: "1:486885299929:web:63eb58dc8ff5de00e950c8",
+  measurementId: "G-NN5PKXJ3DC"
 };
+
 // Inicializar Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth(app);
 const db = getFirestore(app);
+// 🔍 Verificar si las variables están cargando
+console.log("Firebase Config:", firebaseConfig);
+console.log("PROJECT_ID:", import.meta.env.VITE_FIREBASE_PROJECT_ID);
+
 
 // Exportar módulos
 export { auth,db, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged };

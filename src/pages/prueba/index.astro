@@ -1,0 +1,18 @@
+---
+// src/pages/prueba/index.astro
+
+import App from "../../components/App";
+
+// Si deseas agregar otros metadatos como el título de la página, puedes hacerlo aquí.
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Prueba de Login</title>
+  </head>
+  <body>
+    <h1>Bienvenido a la prueba de login</h1>
+    <App client:only="react" />
+  </body>
+</html>
