@@ -25,13 +25,13 @@ const noticias = [
   }
    /* Aumentar la altura de las imágenes */
   .swiper-slide img {
-    height: 50vh; /* Altura ajustable según lo que necesites */
+    height: 45%; /* Altura ajustable según lo que necesites */
   }
   /* Limitar el tamaño máximo del carrusel */
   .swiper-container {
-    max-width: 700px;
+    max-width: 750px;
     margin: 0 auto; /* Centrar el carrusel */
-    padding-top: 20px;
+    padding-top: 0.05vh;
   }
 </style>
 
@@ -40,7 +40,7 @@ const noticias = [
     {noticias.map(noticia => (
       <div class="swiper-slide">
         <a href={noticia.enlace}>
-          <img src={noticia.imagen} alt={noticia.titulo} class="w-full h-64 object-cover rounded-lg shadow-md" />
+          <img src={noticia.imagen} alt={noticia.titulo} class="w-full h-16rem object-cover rounded-lg shadow-md" />
           <h3 class="mt-2 text-lg font-bold text-center text-white">{noticia.titulo}</h3>
         </a>
       </div>

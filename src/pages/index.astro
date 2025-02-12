@@ -9,20 +9,49 @@ import Carousel from "../components/Carousel.astro";
 import { getCollection } from 'astro:content';
 const posts = await getCollection('blog');
 
-// Filtrar y ordenar los posts
-const sortedPosts = posts
-  .filter((post) => !!post.data.pubDate) // Filtrar posts con fecha válida
-  .sort((a, b) => {
-    const dateA = new Date(a.data.pubDate).toISOString().split('T')[0]; // Formato: YYYY-MM-DD
-    const dateB = new Date(b.data.pubDate).toISOString().split('T')[0]; // Formato: YYYY-MM-DD
+// Obtener posts de las tres carpetas
+const postsIA = await getCollection('inteligenciaartificial');
+const postsBlog = await getCollection('blog');
+const postsTech = await getCollection('tecnologia');
+// Unir los posts de todas las categorías
+const allPosts = [...postsIA, ...postsBlog, ...postsTech];
+// Filtrar y ordenar los posts por fecha (usando getTime para realizar la resta)
+const sortedPosts = allPosts
+  .filter((post: any) => !!post.data.pubDate)
+  .sort((a: any, b: any) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
 
-    return dateB.localeCompare(dateA); // Ordenar de más reciente a más antiguo
-  });
-
-// Toma los 3 últimos posts
+  // Obtener los últimos 4 posts
 const latestPosts = sortedPosts.slice(0, 4);
 
+// Función para obtener la URL correcta de cada post según su colección
+const getPostUrl = (post: any) => {
+  if (postsIA.includes(post)) return `/inteligenciaartificial/${post.id}/`;
+  if (postsBlog.includes(post)) return `/blog/${post.id}/`;
+  if (postsTech.includes(post)) return `/tecnologia/${post.id}/`;
+  return `/${post.id}/`; // fallback
+};
 
+// Simulación de datos de artículos (puedes reemplazarlos con datos dinámicos POST COSTADO)
+const sidebarPosts = sortedPosts.slice(0, 6); // Obtiene los 3 posts más recientes para la barra lateral
+
+
+const ultimasEntradas = [
+  { 
+    title: "Nuevo iPhone 16: Todo lo que sabemos", 
+    link: "/tecnologia/gadgets/iphone-16",
+    image: "/img/tecnologia/iphone16-thumb.jpg" // Ruta a la imagen pequeña
+  },
+  { 
+    title: "Las mejores laptops para programadores en 2025", 
+    link: "/tecnologia/software/laptops-programacion",
+    image: "/img/tecnologia/laptops-thumb.jpg" 
+  },
+  { 
+    title: "Cómo proteger tu privacidad en Internet", 
+    link: "/tecnologia/ciberseguridad/privacidad-online",
+    image: "/img/tecnologia/privacidad-thumb.jpg" 
+  },
+];
 ---
 
 <!doctype html>
@@ -36,15 +65,28 @@ const latestPosts = sortedPosts.slice(0, 4);
 	<body>
 		<Header />
 		
-		<main>
-			
-			<section>
-				<Carousel />
+		<main class="container mx-auto px-4 flex flex-col md:flex-row justify-center">
+    
+		<!-- Contenido Principal -->
+		<section class="w-full md:w-2/4">
+			  <!-- Carrusel -->
+			  <Carousel />
+			  <!-- Sección de Tecnología -->
+			  <section class="my-6">
+				<h2 class="text-2xl font-bold mb-4 text-blue-600">Tecnología</h2>
+					<ul class="grid grid-cols-2 gap-4 md:grid-cols-4">
+					<li><a href="/tecnologia/gadgets" class="block p-4 bg-gray-100 rounded-md hover:bg-gray-200">Gadgets y Dispositivos</a></li>
+					<li><a href="/tecnologia/software" class="block p-4 bg-gray-100 rounded-md hover:bg-gray-200">Software y Desarrollo</a></li>
+					<li><a href="/tecnologia/ciberseguridad" class="block p-4 bg-gray-100 rounded-md hover:bg-gray-200">Ciberseguridad</a></li>
+					<li><a href="/tecnologia/internet" class="block p-4 bg-gray-100 rounded-md hover:bg-gray-200">Internet y Redes</a></li>
+					</ul>
+			  </section>
+			  <section>
 				<ul>
 					{
 						posts.map((post) => (
 							<li>
-								<a href={`/blog/${post.id}/`}>
+								<a href={`/inteligenciaartificial/${post.id}`}>
 									<img width={720} height={360} src={post.data.heroImage} alt="" />
 									<h4 class="title">{post.data.title}</h4>
 									<p class="date">
@@ -56,28 +98,45 @@ const latestPosts = sortedPosts.slice(0, 4);
 					}
 				</ul>
 			</section>
+		</section>
 			
+			<!-- Barra Lateral a un costado en pantallas grandes -->
+			<aside class="w-full md:w-1/4 md:pl-6 mt-6 md:mt-0">	  
+			   <!-- Últimas Entradas (dinámico, de las tres carpetas) -->
+			   <section class="bg-gray-100 p-4 rounded-lg shadow-lg mb-6 border-l-4 border-blue-600">
+				<h2 class="text-xl font-semibold mb-3 text-blue-600">📌 Últimas Entradas</h2>
+				<ul class="list-none space-y-2">
+				  {sidebarPosts.map((post: any) => (
+					<li class="flex items-center space-x-2">
+					  <img src={post.data.heroImage} alt={post.data.title} class="w-20 h-20 object-cover rounded" />
+					  <a href={getPostUrl(post)} class="text-blue-600 text-[0.95rem] hover:underline ">
+						{post.data.title}
+					  </a>
+					</li>
+				  ))}
+				</ul>
+			  </section>
+			</aside>
 		</main>
+		<!-- ultimos post -->
 		<section class="latest-posts m-4">
 			<h2 class="text-2xl font-bold mb-4 content-center">Últimos Posts</h2>
 			<ul class="grid grid-cols-2 gap-2 list-none p-0 m-0 md:grid-cols-2 sm:grid-cols-2 lg:grid-cols-4">
-				{
-				  latestPosts.map((post) => (
-					  <li class="w-full">
-						<a href={`/inteligenciaartificial/${post.id}/`}>
-						  <img class="w-full h-42 mb-4" src={post.data.heroImage} alt={post.data.title} />
-						  <h4 class="text-xl font-semibold">{post.data.title}</h4>
-						  <p class="text-gray-500">
-							<FormattedDate date={post.data.pubDate} />
-						  </p>
-						</a>
-					  </li>
-					))
-				}
-			  </ul>
+			  {
+				latestPosts.map((post) => (
+				  <li class="w-full">
+					<a href={getPostUrl(post)}>
+					  <img class="w-full h-42 mb-4" src={post.data.heroImage} alt={post.data.title} />
+					  <h4 class="text-xl font-semibold">{post.data.title}</h4>
+					  <p class="text-gray-500">
+						<FormattedDate date={post.data.pubDate} />
+					  </p>
+					</a>
+				  </li>
+				))
+			  }
+			</ul>
 		  </section>
-		
-		  
 		<Footer />
 	</body>
 </html>
