@@ -7,12 +7,15 @@ import FormattedDate from '../components/FormattedDate.astro';
 import Carousel from "../components/Carousel.astro";
 // Asegúrate de que posts está definido
 import { getCollection } from 'astro:content';
+import CookieBanner from '../components/CookieBanner.astro';
+import LatestContent from '../components/LatestContent.astro';
 const posts = await getCollection('blog');
 
 // Obtener posts de las tres carpetas
 const postsIA = await getCollection('inteligenciaartificial');
 const postsBlog = await getCollection('blog');
 const postsTech = await getCollection('tecnologia');
+const viralPosts = await getCollection('viral'); 
 // Unir los posts de todas las categorías
 const allPosts = [...postsIA, ...postsBlog, ...postsTech];
 // Filtrar y ordenar los posts por fecha (usando getTime para realizar la resta)
@@ -22,6 +25,9 @@ const sortedPosts = allPosts
 
   // Obtener los últimos 4 posts
 const latestPosts = sortedPosts.slice(0, 4);
+// Obtener todas las etiquetas únicas
+const allTags = [...new Set(posts.flatMap(post => post.data.tags || []))];
+
 
 // Función para obtener la URL correcta de cada post según su colección
 const getPostUrl = (post: any) => {
@@ -53,91 +59,139 @@ const ultimasEntradas = [
   },
 ];
 ---
-
 <!doctype html>
 <html lang="es">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4385740960461087"
-     crossorigin="anonymous"></script>
-
-	</head>
-	<body>
-		<Header />
-		
-		<main class="container mx-auto px-4 flex flex-col md:flex-row justify-center">
-    
+<head>
+	<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4385740960461087"
+ crossorigin="anonymous"></script>
+</head>
+<body>
+	<Header />
+	<main class="container mx-auto px-4 flex flex-col md:flex-row gap-6 justify-center w-full">
 		<!-- Contenido Principal -->
-		<section class="w-full md:w-2/4">
-			  <!-- Carrusel -->
-			  <Carousel />
-			  <!-- Sección de Tecnología -->
-			  <section class="my-6">
-				<h2 class="text-2xl font-bold mb-4 text-blue-600">Tecnología</h2>
-					<ul class="grid grid-cols-2 gap-4 md:grid-cols-4">
-					<li><a href="/tecnologia/gadgets" class="block p-4 bg-gray-100 rounded-md hover:bg-gray-200">Gadgets y Dispositivos</a></li>
-					<li><a href="/tecnologia/software" class="block p-4 bg-gray-100 rounded-md hover:bg-gray-200">Software y Desarrollo</a></li>
-					<li><a href="/tecnologia/ciberseguridad" class="block p-4 bg-gray-100 rounded-md hover:bg-gray-200">Ciberseguridad</a></li>
-					<li><a href="/tecnologia/internet" class="block p-4 bg-gray-100 rounded-md hover:bg-gray-200">Internet y Redes</a></li>
-					</ul>
-			  </section>
-			  <section>
-				<ul>
-					{
-						posts.map((post) => (
-							<li>
-								<a href={`/inteligenciaartificial/${post.id}`}>
-									<img width={720} height={360} src={post.data.heroImage} alt="" />
-									<h4 class="title">{post.data.title}</h4>
-									<p class="date">
-										<FormattedDate date={post.data.pubDate} />
-									</p>
-								</a>
-							</li>
-						))
-					}
-				</ul>
-			</section>
-		</section>
-			
-			<!-- Barra Lateral a un costado en pantallas grandes -->
-			<aside class="w-full md:w-1/4 md:pl-6 mt-6 md:mt-0">	  
-			   <!-- Últimas Entradas (dinámico, de las tres carpetas) -->
-			   <section class="bg-gray-100 p-4 rounded-lg shadow-lg mb-6 border-l-4 border-blue-600">
-				<h2 class="text-xl font-semibold mb-3 text-blue-600">📌 Últimas Entradas</h2>
-				<ul class="list-none space-y-2">
-				  {sidebarPosts.map((post: any) => (
-					<li class="flex items-center space-x-2">
-					  <img src={post.data.heroImage} alt={post.data.title} class="w-20 h-20 object-cover rounded" />
-					  <a href={getPostUrl(post)} class="text-blue-600 text-[0.95rem] hover:underline ">
-						{post.data.title}
-					  </a>
-					</li>
-				  ))}
-				</ul>
-			  </section>
-			</aside>
-		</main>
-		<!-- ultimos post -->
-		<section class="latest-posts m-4">
-			<h2 class="text-2xl font-bold mb-4 content-center">Últimos Posts</h2>
-			<ul class="grid grid-cols-2 gap-2 list-none p-0 m-0 md:grid-cols-2 sm:grid-cols-2 lg:grid-cols-4">
-			  {
-				latestPosts.map((post) => (
-				  <li class="w-full">
-					<a href={getPostUrl(post)}>
-					  <img class="w-full h-42 mb-4" src={post.data.heroImage} alt={post.data.title} />
-					  <h4 class="text-xl font-semibold">{post.data.title}</h4>
-					  <p class="text-gray-500">
-						<FormattedDate date={post.data.pubDate} />
-					  </p>
-					</a>
-				  </li>
-				))
-			  }
+		<section class="w-full md:w-2/4 lg:w-2/4">
+		  <!-- Carrusel -->
+		  <div class="max-w-3xl mx-auto">
+			<Carousel />
+		  </div>
+		  <!-- Sección de Tecnología -->
+		  <!-- <section class="my-6">
+			<h2 class="text-2xl font-bold mb-4 text-blue-600">Tecnología</h2>
+			<ul class="grid grid-cols-2 gap-4 md:grid-cols-4">
+			  <li><a href="/tecnologia/gadgets" class="block p-4 bg-gray-100 rounded-md hover:bg-gray-200">Gadgets y Dispositivos</a></li>
+			  <li><a href="/tecnologia/software" class="block p-4 bg-gray-100 rounded-md hover:bg-gray-200">Software y Desarrollo</a></li>
+			  <li><a href="/tecnologia/ciberseguridad" class="block p-4 bg-gray-100 rounded-md hover:bg-gray-200">Ciberseguridad</a></li>
+			  <li><a href="/tecnologia/internet" class="block p-4 bg-gray-100 rounded-md hover:bg-gray-200">Internet y Redes</a></li>
+			</ul>
+		  </section> -->
+		  
+		  <section>
+			<ul class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+			  {posts.map((post) => (
+				<li>
+				  <a href={`/inteligenciaartificial/${post.id}`} class="block">
+					<img class="w-full h-auto" src={post.data.heroImage} alt="" />
+					<h4 class="title mt-2 text-lg font-bold">{post.data.title}</h4>
+					<p class="date text-gray-500">
+					  <FormattedDate date={post.data.pubDate} />
+					</p>
+				  </a>
+				</li>
+			  ))}
 			</ul>
 		  </section>
-		<Footer />
-	</body>
+		  
+		  
+		</section>
+		
+	<!-- Barra Lateral -->
+<aside class="w-full md:w-1/4  md:mt-0 sticky sm:w-full xl:w-1/4">
+	<section class="bg-gray-100 p-4 rounded-lg shadow-lg mb-6 ">
+	  <h2 class="text-xl font-semibold mb-3 text-blue-600">📌 Últimas Entradas</h2>
+	  <ul class="list-none space-y-2">
+		{sidebarPosts.map((post) => (
+		  <li class="flex items-start space-x-4">
+			<!-- Imagen con tamaño fijo y sin deformarse -->
+			<img src={post.data.heroImage} alt={post.data.title} class="w-20 h-20 object-cover rounded-lg" />
+			
+			<!-- Enlace con texto completo pero sin deformar el contenedor -->
+			<a href={getPostUrl(post)} class="text-blue-600 text-[0.95rem] hover:underline block w-full">
+			  <span class="block overflow-hidden text-ellipsis">{post.data.title}</span>
+			</a>
+		  </li>
+		))}
+	  </ul>
+	</section>
+	<LatestContent /> <!-- Aquí se agrega el componente -->
+  </aside>
+	  </main>
+	 
+<section class="latest-posts m-4">
+	<h2 class="text-2xl font-bold mb-4 text-center ">Viral</h2>
+	<ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+	  {viralPosts.map((post) => (
+		<li class="w-full">
+		  <a href={getPostUrl(post)} class="block bg-white border border-gray-200 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+			<img class="w-full h-56 object-cover rounded-t-lg" src={post.data.heroImage} alt={post.data.title} />
+			<div class="p-4">
+			  <h4 class="text-lg font-semibold text-gray-900">{post.data.title}</h4>
+			  <p class="text-sm text-gray-500 mt-2">
+				<FormattedDate date={post.data.pubDate} />
+			  </p>
+			</div>
+		  </a>
+		</li>
+	  ))}
+	</ul>
+  </section>
+  
+  <section class="latest-posts m-4">
+	<h2 class="text-2xl font-bold mb-4">Últimos Posts</h2>
+	<ul class="grid grid-cols-2 gap-4 list-none p-0 m-0 md:grid-cols-2 sm:grid-cols-2 lg:grid-cols-4">
+		{
+		  latestPosts.map((post) => (
+			  <li class="w-full mb-4">
+				<a href={`/viral/${post.id}/`} class="block bg-white border rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+				  <img class="w-full h-56 object-cover rounded-t-lg" src={post.data.heroImage} alt={post.data.title} />
+				  <div class="p-4">
+					  <h4 class="text-xl font-semibold text-gray-900">{post.data.title}</h4>
+					  <p class="text-gray-500 mt-2">
+						  <FormattedDate date={post.data.pubDate} />
+					  </p>
+				  </div>
+				</a>
+			  </li>
+			))
+		}
+	  </ul>
+  </section>
+  <CookieBanner />
+	<Footer />
+</body>
 </html>
 
+  
+<style>
+	.tags {
+		margin-bottom: 2rem;
+	}
+	.tag-list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		list-style: none;
+		padding: 0;
+	}
+	.tag {
+		background-color: #007acc;
+		color: white;
+		padding: 0.3rem 0.6rem;
+		border-radius: 5px;
+		text-decoration: none;
+		font-weight: bold;
+	}
+	.tag:hover {
+		background-color: #005f99;
+	}
+</style>

@@ -4,10 +4,9 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import FormattedDate from '../../components/FormattedDate.astro';
-
-// Asegúrate de que posts está definido
 import { getCollection } from 'astro:content';
-const posts = await getCollection('blog');
+
+const posts = await getCollection('explora');
 
 // Filtrar y ordenar los posts
 const sortedPosts = posts
@@ -19,62 +18,62 @@ const sortedPosts = posts
     return dateB.localeCompare(dateA); // Ordenar de más reciente a más antiguo
   });
 
-// Toma los 3 últimos posts
+// Toma los 4 últimos posts
 const latestPosts = sortedPosts.slice(0, 4);
-
-
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-
+		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4385740960461087" crossorigin="anonymous"></script>
 	</head>
 	<body>
 		<Header />
+		
 		<main>
 			<section>
-				<ul>
+				<ul class="flex flex-col space-y-6">
 					{
 						posts.map((post) => (
 							<li>
-								<a href={`/blog/${post.id}/`}>
-									<img width={720} height={360} src={post.data.heroImage} alt="" />
-									<h4 class="title">{post.data.title}</h4>
-									<p class="date">
-										<FormattedDate date={post.data.pubDate} />
-									</p>
+								<a href={`/explora/${post.id}`} class="block bg-white border rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+									<img class="w-full h-80 object-cover rounded-t-lg" width={720} height={400} src={post.data.heroImage} alt={post.data.title} />
+									<div class="p-4">
+										<h4 class="text-lg font-semibold text-gray-900">{post.data.title}</h4>
+										<p class="text-sm text-gray-500 mt-2">
+											<FormattedDate date={post.data.pubDate} />
+										</p>
+									</div>
 								</a>
 							</li>
 						))
 					}
 				</ul>
 			</section>
-			
-			
-			<section class="latest-posts">
-				<h2 class="text-2xl font-bold mb-4">Últimos Posts</h2>
-				<ul class="grid grid-cols-2 gap-8 list-none p-0 m-0 md:grid-cols-2 sm:grid-cols-2 lg:grid-cols-5">
-					{
-					  latestPosts.map((post) => (
-						  <li class="w-full">
-							<a href={`/blog/${post.id}/`}>
-							  <img class="w-full h-auto mb-4" src={post.data.heroImage} alt={post.data.title} />
-							  <h4 class="text-xl font-semibold">{post.data.title}</h4>
-							  <p class="text-gray-500">
-								<FormattedDate date={post.data.pubDate} />
-							  </p>
-							</a>
-						  </li>
-						))
-					}
-				  </ul>
-			  </section>
-		</main>
 
-		
-		  
+			
+		</main>
+		<section class="latest-posts mt-10">
+			<h2 class="text-2xl font-bold mb-4 text-center">Últimos Posts</h2>
+			<ul class="grid grid-cols-2 gap-2 list-none p-0 m-0 md:grid-cols-2 sm:grid-cols-2 lg:grid-cols-4">
+				{
+				  latestPosts.map((post) => (
+					  <li class="w-full">
+						<a href={`/explora/${post.id}/`} class="block bg-white border rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+						  <img class="w-full h-56 object-cover rounded-t-lg" src={post.data.heroImage} alt={post.data.title} />
+						  <div class="p-4">
+							  <h4 class="text-lg font-semibold text-gray-900">{post.data.title}</h4>
+							  <p class="text-sm text-gray-500 mt-2">
+								  <FormattedDate date={post.data.pubDate} />
+							  </p>
+						  </div>
+						</a>
+					  </li>
+					))
+				}
+			</ul>
+		</section>
 		<Footer />
 	</body>
 </html>

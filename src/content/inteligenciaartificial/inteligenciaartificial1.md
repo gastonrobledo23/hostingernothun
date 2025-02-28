@@ -3,7 +3,7 @@ title: "DeepSeek la innovadora IA china que amenaza a ChatGPT"
 description: "DeepSeek es una startup china de inteligencia artificial que ha ganado notoriedad con su modelo DeepSeek-R1, desafiando a gigantes como OpenAI y Google. Con un enfoque eficiente y de código abierto, ha generado impacto global, pero también preocupaciones sobre privacidad, censura y seguridad de datos. Su éxito ha sacudido el mercado tecnológico, marcando un nuevo capítulo en la competencia entre China y EE.UU. en IA."
 pubDate: 2025-02-01
 heroImage: "/inteligenciaartificial1a.avif"
-tags:
+tags: ["IA", "Tecnología"]
 ---
 DeepSeek, una startup china de inteligencia artificial (IA), ha emergido como un competidor formidable en el panorama tecnológico global, desafiando a gigantes como OpenAI y Google. Fundada en 2023 por Liang Wenfeng en Hangzhou, la empresa ha captado la atención mundial con su modelo de lenguaje avanzado, DeepSeek-R1, y su aplicación de chatbot, que ha liderado las descargas en la App Store de Apple en países como China y Estados Unidos.
 

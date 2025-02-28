@@ -1,114 +1,117 @@
 ---
 import HeaderLink from './HeaderLink.astro';
-
 ---
+
 <style>
-	#menu {
-  z-index: 20; /* Menú por encima del contenido */
-}
-#overlay {
-  z-index: 10; /* Overlay encima del contenido pero debajo del menú */
-}
+  #menu {
+    z-index: 20; /* Menú por encima del contenido */
+  }
+  #overlay {
+    z-index: 10; /* Overlay encima del contenido pero debajo del menú */
+  }
 </style>
+
 <header class="bg-gradient-to-r from-indigo-600 to-purple-600 shadow-md">
-	<nav class="flex justify-between items-center p-4">
-	  <!-- Logo centrado en móviles y tablets -->
-	  <h2 class="flex-1 text-center sm:text-left">
-		<a href="/">
-		  <img src="/img/nothunlogo.png" alt="Logo del sitio" class="h-10 mx-auto sm:mx-0" />
-		</a>
-	  </h2>
-  
-	  <!-- Botón de menú hamburguesa en pantallas pequeñas -->
-	  <div class="sm:hidden">
-		<button id="menu-toggle" class="text-white">
-		  <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-			<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-		  </svg>
-		</button>
-	  </div>
-  
-	  <!-- Enlaces del menú (para pantallas grandes) -->
-	  <div class="hidden sm:flex space-x-4">
-		<HeaderLink href="/" class="text-white transition-colors duration-300 hover:bg-indigo-700 active:bg-indigo-800 py-2 px-4 rounded">Inicio</HeaderLink>
-		<HeaderLink href="/blog" class="text-white transition-colors duration-300 hover:bg-indigo-700 active:bg-indigo-800 py-2 px-4 rounded">Noticias</HeaderLink>
-		<HeaderLink href="/login" class="text-white transition-colors duration-300 hover:bg-indigo-700 active:bg-indigo-800 py-2 px-4 rounded">login</HeaderLink>
-		<HeaderLink href="/tecnologia" class="text-white transition-colors duration-300 hover:bg-indigo-700 active:bg-indigo-800 py-2 px-4 rounded">Tecnologia</HeaderLink>
-		<HeaderLink href="/inteligenciaartificial" class="text-white transition-colors duration-300 hover:bg-indigo-700 active:bg-indigo-800 py-2 px-4 rounded">Inteligencia Artificial</HeaderLink>
-		<HeaderLink href="/explora" class="text-white transition-colors duration-300 hover:bg-indigo-700 active:bg-indigo-800 py-2 px-4 rounded">Explora</HeaderLink>
-		<HeaderLink href="/aprende" class="text-white transition-colors duration-300 hover:bg-indigo-700 active:bg-indigo-800 py-2 px-4 rounded">Aprende</HeaderLink>
-		<HeaderLink href="/about" class="text-white transition-colors duration-300 hover:bg-indigo-700 active:bg-indigo-800 py-2 px-4 rounded">Contacto</HeaderLink>
-	</div>
+  <nav class="flex justify-between items-center p-4">
+    <!-- Logo centrado en móviles y tablets -->
+    <h2 class="flex-1 text-center sm:text-left">
+      <a href="/">
+        <img src="/img/nothunlogo.png" alt="Logo del sitio" class="h-10 mx-auto sm:mx-0" />
+      </a>
+    </h2>
 
-	  
-	</nav>
-	
-	<!-- Overlay oscuro -->
-	<div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden"></div>
+    <!-- Botón de menú hamburguesa en pantallas pequeñas -->
+    <div class="sm:hidden">
+      <button id="menu-toggle" class="text-white">
+        <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
 
-	<!-- Menú desplegable (para pantallas pequeñas) -->
-	<div id="menu" class="sm:hidden fixed top-0 left-0 w-2/3 h-full bg-purple-800 transform -translate-x-full transition-transform ease-in-out duration-300 shadow-lg shadow-white/50">
-	  <div class="mt-4 flex justify-center" >
-		<img class="w-10" src="/img/nothunlogo.png" alt="">
-	  </div>
+    <!-- Enlaces del menú (para pantallas grandes) -->
+    <div class="hidden sm:flex space-x-4 ">
+      <HeaderLink href="/" class="text-white transition-colors duration-300 hover:bg-indigo-700 active:bg-indigo-800 py-2 px-4 rounded">Inicio</HeaderLink>
+      <!-- <HeaderLink href="/CardsPage" class="text-white transition-colors duration-300 hover:bg-indigo-700 active:bg-indigo-800 py-2 px-4 rounded">Cardsss</HeaderLink> -->
+      <HeaderLink href="/blog" class="text-white transition-colors duration-300 hover:bg-indigo-700 active:bg-indigo-800 py-2 px-4 rounded">Noticias</HeaderLink>
+      <HeaderLink href="/tecnologia" class="text-white transition-colors duration-300 hover:bg-indigo-700 active:bg-indigo-800 py-2 px-4 rounded">Tecnología</HeaderLink>
+      <HeaderLink href="/inteligenciaartificial" class="text-white transition-colors duration-300 hover:bg-indigo-700 active:bg-indigo-800 py-2 px-4 rounded">Inteligencia Artificial</HeaderLink>
+      <HeaderLink href="/explora" class="text-white transition-colors duration-300 hover:bg-indigo-700 active:bg-indigo-800 py-2 px-4 rounded">Explora</HeaderLink>
+      <!-- <HeaderLink href="/aprende" class="text-white transition-colors duration-300 hover:bg-indigo-700 active:bg-indigo-800 py-2 px-4 rounded">Aprende</HeaderLink> -->
+      <HeaderLink href="/about" class="text-white transition-colors duration-300 hover:bg-indigo-700 active:bg-indigo-800 py-2 px-4 rounded">Contacto</HeaderLink>
+      
+      <a href="/login" class="text-white hover:bg-indigo-700 p-2 rounded flex items-center">
+        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c2.21 0 4-1.79 4-4S14.21 3 12 3 8 4.79 8 7s1.79 4 4 4zm-6 8a6 6 0 0112 0H6z"/>
+        </svg>
+      </a>
 
-		<div class="flex flex-col items-center py-8 space-y-4">
-		<HeaderLink href="/" class="text-white py-2 px-4 rounded">Inicio</HeaderLink>
-		<HeaderLink href="/blog" class="text-white py-2 px-4 rounded">Noticias</HeaderLink>
-		<HeaderLink href="/tecnologia" class="text-white py-2 px-4 rounded">Tecnologia</HeaderLink>
-		<HeaderLink href="/inteligenciaartificial" class="text-white py-2 px-4 rounded">Inteligencia Artificial</HeaderLink>
-		<HeaderLink href="/explora" class="text-white py-2 px-4 rounded">Explora</HeaderLink>
-		<HeaderLink href="/aprende" class="text-white py-2 px-4 rounded">Aprende</HeaderLink>
-		<HeaderLink href="/about" class="text-white py-2 px-4 rounded">Contacto</HeaderLink>
-		<HeaderLink href="/login" class="text-white py-2 px-4 rounded">login</HeaderLink>
-		
-	</div>
-	</div>
-	  
-	<div class="flex justify-center gap-x-4 mt-4">
+    </div>
+  </nav>
 
-		<a href="https://www.instagram.com/@nothun.ai">
-			<img class="h-10" src="/img/nothuninstagram.avif" alt="">
-		</a>
-		
-		<a href="https://www.tiktok.com/@nothun.ai" target="_blank">
-			<img class="h-10" src="/img/nothuntiktok.avif" alt="">
-		</a>
-		<a href="https://twitter.com/nothun_ai" target="_blank">
-			<img class="h-10" src="/img/nothunx.avif" alt="">
-		
-		<a href="https://www.youtube.com/@nothunai" target="_blank">
-			<img class="h-10" src="/img/nothunyoutube.avif" alt="">
-		
-		</a>
-		<a href="https://www.facebook.com/nothunyt" target="_blank">
-			<img class="h-10" src="/img/nothunfacebook.avif" alt="">
-				  
-		</a>
+  <!-- Overlay oscuro -->
+  <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden"></div>
 
-	</div>
-	</div>
-  
-	<!-- Scripts -->
-	<script>
-	  const menuToggle = document.getElementById('menu-toggle');
-	  const menu = document.getElementById('menu');
-	//oscurecer fondo
-	  const overlay = document.getElementById('overlay');
+  <!-- Menú desplegable (para pantallas pequeñas) -->
+  <div id="menu" class="sm:hidden fixed top-0 left-0 w-2/3 h-full bg-purple-800 transform -translate-x-full transition-transform ease-in-out duration-300 shadow-lg shadow-white/50">
+    <div class="mt-4 flex justify-center">
+      <img class="w-10" src="/img/nothunlogo.png" alt="Logo del sitio">
+    </div>
 
-	  // Asegúrate de que los elementos existen antes de agregar el event listener
-	  if (menuToggle && menu && overlay) {
-		menuToggle.addEventListener('click', () => {
-		  menu.classList.toggle('-translate-x-full');
-		  overlay.classList.toggle('hidden');  // Muestra/oculta el overlay
-		});
+    <div class="flex flex-col items-center py-8 space-y-4">
+      <HeaderLink href="/" class="text-white py-2 px-4 rounded">Inicio</HeaderLink>
+      <HeaderLink href="/blog" class="text-white py-2 px-4 rounded">Noticias</HeaderLink>
+      <HeaderLink href="/tecnologia" class="text-white py-2 px-4 rounded">Tecnología</HeaderLink>
+      <HeaderLink href="/inteligenciaartificial" class="text-white py-2 px-4 rounded">Inteligencia Artificial</HeaderLink>
+      <HeaderLink href="/explora" class="text-white py-2 px-4 rounded">Explora</HeaderLink>
+      <!-- <HeaderLink href="/aprende" class="text-white py-2 px-4 rounded">Aprende</HeaderLink> -->
+      <HeaderLink href="/about" class="text-white py-2 px-4 rounded">Contacto</HeaderLink>
+      <a href="/login" class="text-white hover:bg-indigo-700 p-2 rounded flex items-center">
+        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c2.21 0 4-1.79 4-4S14.21 3 12 3 8 4.79 8 7s1.79 4 4 4zm-6 8a6 6 0 0112 0H6z"/>
+        </svg>
+        Usuario
+      </a>
+      <!-- Redes sociales (solo en menú desplegable) -->
+      <div class="flex justify-center gap-x-4 mt-4">
+        <a href="https://www.instagram.com/@nothun.ai">
+          <img class="h-10" src="/img/nothuninstagram.avif" alt="Instagram">
+        </a>
+        <a href="https://www.tiktok.com/@nothun.ai" target="_blank">
+          <img class="h-10" src="/img/nothuntiktok.avif" alt="TikTok">
+        </a>
+        <a href="https://twitter.com/nothun_ai" target="_blank">
+          <img class="h-10" src="/img/nothunx.avif" alt="Twitter">
+        </a>
+        <a href="https://www.youtube.com/@nothunai" target="_blank">
+          <img class="h-10" src="/img/nothunyoutube.avif" alt="YouTube">
+        </a>
+        <a href="https://www.facebook.com/nothunyt" target="_blank">
+          <img class="h-10" src="/img/nothunfacebook.avif" alt="Facebook">
+        </a>
+      </div>
+    </div>
+  </div>
 
-		// Cerrar el menú si se hace click sobre el overlay
-		overlay.addEventListener('click', () => {
+  <!-- Scripts -->
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu');
+    const overlay = document.getElementById('overlay');
+
+    if (menuToggle && menu && overlay) {
+      menuToggle.addEventListener('click', () => {
+        menu.classList.toggle('-translate-x-full');
+        overlay.classList.toggle('hidden');  // Muestra/oculta el overlay
+      });
+
+      // Cerrar el menú si se hace click sobre el overlay
+      overlay.addEventListener('click', () => {
         menu.classList.add('-translate-x-full');
         overlay.classList.add('hidden');  // Oculta el overlay
       });
-	  }
-	</script>
-  </header>
+    }
+  </script>
+</header>
+
   

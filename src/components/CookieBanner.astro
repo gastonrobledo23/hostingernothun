@@ -1,0 +1,36 @@
+---
+// CookieBanner.astro
+---
+---
+<div id="cookie-banner" class="fixed bottom-0 left-0 w-full bg-gray-800 text-white py-3 px-4 flex justify-between items-center z-50" style="display: none;">
+  <div class="flex items-center">
+    <span class="mr-3">Usamos cookies para mejorar la experiencia. Al continuar navegando, aceptas el uso de cookies.</span>
+  </div>
+  <button id="accept-cookies" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Aceptar</button>
+</div>
+
+<script>
+  // Verificar si el documento está listo y si los elementos existen
+  if (typeof document !== 'undefined') {
+    const cookieBanner = document.getElementById('cookie-banner');
+    const acceptCookiesButton = document.getElementById('accept-cookies');
+
+    if (cookieBanner && acceptCookiesButton) {
+      // Comprobar si el usuario ya ha aceptado las cookies
+      if (!localStorage.getItem('cookiesAccepted')) {
+        // Esperar 3 segundos (3000 ms) antes de mostrar el banner
+        setTimeout(function() {
+          cookieBanner.style.display = 'flex';
+        }, 3000); // Puedes cambiar 3000 por el número de milisegundos que desees
+      } else {
+        cookieBanner.style.display = 'none';
+      }
+
+      // Función para ocultar el banner cuando el usuario hace clic en "Aceptar"
+      acceptCookiesButton.addEventListener('click', function() {
+        cookieBanner.style.display = 'none';
+        localStorage.setItem('cookiesAccepted', 'true'); // Guardar la aceptación en localStorage
+      });
+    }
+  }
+</script>

@@ -43,10 +43,10 @@ body {
 	line-height: 1.7;
 }
 main {
-	width: 720px;
+	width: 800px;
 	max-width: calc(100%);
 	margin: auto;
-	padding: 3em 1em;
+	padding: 1em 1em;
 }
 
 h1,
@@ -60,16 +60,16 @@ h6 {
 	line-height: 1.2;
 }
 h1 {
-	font-size: 2.052em;
+	font-size: 1.5em;
 }
 h2 {
-	font-size: 2.441em;
+	font-size: 1.5em;
 }
 h3 {
-	font-size: 1.953em;
+	font-size: 1.5em;
 }
 h4 {
-	font-size: 1.563em;
+	font-size: 1.5em;
 }
 h5 {
 	font-size: 1.25em;

@@ -19,10 +19,8 @@ const sortedPosts = posts
     return dateB.localeCompare(dateA); // Ordenar de más reciente a más antiguo
   });
 
-// Toma los 3 últimos posts
+// Toma los 4 últimos posts
 const latestPosts = sortedPosts.slice(0, 4);
-
-
 ---
 
 <!doctype html>
@@ -39,39 +37,44 @@ const latestPosts = sortedPosts.slice(0, 4);
 				<ul>
 					{
 						posts.map((post) => (
-							<li>
-								<a href={`/blog/${post.id}/`}>
-									<img width={720} height={360} src={post.data.heroImage} alt="" />
-									<h4 class="title">{post.data.title}</h4>
-									<p class="date">
-										<FormattedDate date={post.data.pubDate} />
-									</p>
+							<li class="mb-6">
+								<a href={`/blog/${post.id}/`} class="block bg-white border rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+									<img class="w-full h-56 object-cover rounded-t-lg" width={720} height={400} src={post.data.heroImage} alt={post.data.title} />
+									<div class="p-4">
+										<h4 class="text-lg font-semibold text-gray-900">{post.data.title}</h4>
+										<p class="text-sm text-gray-500 mt-2">
+											<FormattedDate date={post.data.pubDate} />
+										</p>
+									</div>
 								</a>
 							</li>
 						))
 					}
 				</ul>
 			</section>
-			
 		</main>
-			  <section class="latest-posts m-4">
-				<h2 class="text-2xl font-bold mb-4">Últimos Posts</h2>
-				<ul class="grid grid-cols-2 gap-2 list-none p-0 m-0 md:grid-cols-2 sm:grid-cols-2 lg:grid-cols-4">
-					{
-					  latestPosts.map((post) => (
-						  <li class="w-full">
-							<a href={`/inteligenciaartificial/${post.id}/`}>
-							  <img class="w-full h-42 mb-4" src={post.data.heroImage} alt={post.data.title} />
-							  <h4 class="text-xl font-semibold">{post.data.title}</h4>
-							  <p class="text-gray-500">
-								<FormattedDate date={post.data.pubDate} />
+		
+		<section class="latest-posts m-4">
+			<h2 class="text-2xl font-bold mb-4">Últimos Posts</h2>
+			<ul class="grid grid-cols-2 gap-4 list-none p-0 m-0 md:grid-cols-2 sm:grid-cols-2 lg:grid-cols-4">
+				{
+				  latestPosts.map((post) => (
+					  <li class="w-full mb-4">
+						<a href={`/blog/${post.id}/`} class="block bg-white border rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+						  <img class="w-full h-56 object-cover rounded-t-lg" src={post.data.heroImage} alt={post.data.title} />
+						  <div class="p-4">
+							  <h4 class="text-xl font-semibold text-gray-900">{post.data.title}</h4>
+							  <p class="text-gray-500 mt-2">
+								  <FormattedDate date={post.data.pubDate} />
 							  </p>
-							</a>
-						  </li>
-						))
-					}
-				  </ul>
-			  </section>
+						  </div>
+						</a>
+					  </li>
+					))
+				}
+			</ul>
+		</section>
+		
 		<Footer />
 	</body>
 </html>

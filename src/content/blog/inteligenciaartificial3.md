@@ -3,6 +3,7 @@ title: "Aitana López: La Modelo Virtual que Gana 10.000 Euros al Mes con IA"
 description: "Esta es una descripción breve del Post 1."
 pubDate: 2024-08-01
 heroImage: "/inteligenciaartificial3a.avif"
+tags: ["IA", "Tecnología"]
 ---
 La inteligencia artificial está transformando la industria del modelaje, y Aitana López es prueba de ello. Esta modelo virtual, creada mediante IA y renderizado 3D, ha conquistado las redes sociales y genera hasta 10.000 euros al mes colaborando con marcas de moda, belleza y tecnología.
 

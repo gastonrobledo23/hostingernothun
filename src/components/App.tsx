@@ -8,6 +8,7 @@ import { auth } from "../firebase/firebaseconfig";
 
 console.log("🔥 Estado de autenticación actual:", auth.currentUser);
 
+
 function App() {
   const { loading } = useAuth();
 
@@ -21,7 +22,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} /> 
         <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
-        <Route path="*" element={<Navigate to="/login" />} />
+        <Route path="*" element={<Navigate to="/login" />} />  
       </Routes>
     </Router>
   );

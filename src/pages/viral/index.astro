@@ -1,0 +1,79 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+import FormattedDate from '../../components/FormattedDate.astro';
+
+// Asegúrate de que posts está definido
+import { getCollection } from 'astro:content';
+const posts = await getCollection('viral');
+
+// Filtrar y ordenar los posts
+const sortedPosts = posts
+  .filter((post) => !!post.data.pubDate) // Filtrar posts con fecha válida
+  .sort((a, b) => {
+    const dateA = new Date(a.data.pubDate).toISOString().split('T')[0]; // Formato: YYYY-MM-DD
+    const dateB = new Date(b.data.pubDate).toISOString().split('T')[0]; // Formato: YYYY-MM-DD
+
+    return dateB.localeCompare(dateA); // Ordenar de más reciente a más antiguo
+  });
+
+// Toma los 3 últimos posts
+const latestPosts = sortedPosts.slice(0, 8);
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section>
+				<ul>
+					{
+						posts.map((post) => (
+							<li class="mb-6">
+								<a href={`/viral/${post.id}/`} class="block bg-white border rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+									<img class="w-full h-56 object-cover rounded-t-lg" width={720} height={400} src={post.data.heroImage} alt={post.data.title} />
+									<div class="p-4">
+										<h4 class="text-lg font-semibold text-gray-900">{post.data.title}</h4>
+										<p class="text-sm text-gray-500 mt-2">
+											<FormattedDate date={post.data.pubDate} />
+										</p>
+									</div>
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</section>
+			
+		</main>
+		
+		<section class="latest-posts m-4">
+			<h2 class="text-2xl font-bold mb-4">Últimos Posts</h2>
+			<ul class="grid grid-cols-2 gap-4 list-none p-0 m-0 md:grid-cols-2 sm:grid-cols-2 lg:grid-cols-4">
+				{
+				  latestPosts.map((post) => (
+					  <li class="w-full mb-4">
+						<a href={`/viral/${post.id}/`} class="block bg-white border rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+						  <img class="w-full h-56 object-cover rounded-t-lg" src={post.data.heroImage} alt={post.data.title} />
+						  <div class="p-4">
+							  <h4 class="text-xl font-semibold text-gray-900">{post.data.title}</h4>
+							  <p class="text-gray-500 mt-2">
+								  <FormattedDate date={post.data.pubDate} />
+							  </p>
+						  </div>
+						</a>
+					  </li>
+					))
+				}
+			  </ul>
+		  </section>
+		
+		<Footer />
+	</body>
+</html>

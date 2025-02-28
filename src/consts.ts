@@ -21,6 +21,17 @@ const inteligenciaartificialCollection = defineCollection({
     date: z.string(),
     description: z.string(),
     slug: z.string(),
+    tags: z.array(z.string()).optional(), // Si necesitas tags
+  }),
+});
+
+const exploraCollection = defineCollection({
+  schema: z.object({
+    title: z.string(),
+    date: z.string(),
+    description: z.string(),
+    slug: z.string(),
+    tags: z.array(z.string()).optional(), // Si necesitas tags
   }),
 });
 
@@ -31,11 +42,25 @@ const tecnologiaCollection = defineCollection({
     date: z.string(),
     description: z.string(),
     slug: z.string(),
+    tags: z.array(z.string()).optional(), 
+  }),
+});
+
+
+const viralCollection = defineCollection({
+  schema: z.object({
+    title: z.string(),
+    date: z.string(),
+    description: z.string(),
+    slug: z.string(),
+    tags: z.array(z.string()).optional(), 
   }),
 });
 
 export const collections = {
+  viral:viralCollection,
+  explora: exploraCollection,
   posts: postsCollection,
-  inteligenciaartificials:inteligenciaartificialCollection,
+  inteligenciaartificial:inteligenciaartificialCollection,
   tecnologia:tecnologiaCollection
 };

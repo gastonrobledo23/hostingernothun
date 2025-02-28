@@ -12,14 +12,19 @@ import type { User } from "firebase/auth"; // ✅ Importar User como type
 import { getFirestore } from "firebase/firestore";//enlazado con dahsboard,app,
 // Configuración de Firebasee
 const firebaseConfig = {
-  apiKey: "AIzaSyDpdNLr9o2AL5w0EvncXFHcmfWhp_IS2Wo",
-  authDomain: "basenothun.firebaseapp.com",
-  projectId: "basenothun",
-  storageBucket: "basenothun.firebasestorage.app",
-  messagingSenderId: "486885299929",
-  appId: "1:486885299929:web:63eb58dc8ff5de00e950c8",
-  measurementId: "G-NN5PKXJ3DC"
+  apiKey: import.meta.env.PUBLIC_API_KEY,
+  authDomain: import.meta.env.PUBLIC_AUTH_DOMAIN,
+  projectId: import.meta.env.PUBLIC_PROJECT_ID,
+  storageBucket: import.meta.env.PUBLIC_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.PUBLIC_MESSAGING_SENDER_ID,
+  appId: import.meta.env.PUBLIC_APP_ID,
+  measurementId: import.meta.env.PUBLIC_MEASUREMENT_ID,
 };
+
+
+export default firebaseConfig;
+
+
 
 // Inicializar Firebase
 const app = initializeApp(firebaseConfig);

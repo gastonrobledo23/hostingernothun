@@ -1,8 +1,20 @@
 ---
 import App from "../../components/App";
----
-<h1>hola 1234</h1>
-<body>
-    <App client:only="react" />
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 
+---
+<!doctype html>
+<html lang="es">
+    <head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4385740960461087"
+     crossorigin="anonymous"></script>
+	</head>
+<body>
+    <Header />
+    <App client:only="react" />
+ 
 </body>
+</html>

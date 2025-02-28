@@ -3,6 +3,7 @@ title: "Microsoft regala su IA más inteligente: ¡Think Deeper ya está gratis 
 description: "Microsoft acaba de cambiar las reglas del juego en la inteligencia artificial. Con Think Deeper, su nuevo modelo de razonamiento avanzado, ahora puedes acceder a una IA que no solo responde, sino que piensa como nunca antes. Y lo mejor: ¡es totalmente gratis para todos los usuarios de Copilot! "
 pubDate: 2025-02-01
 heroImage: "/inteligenciaartificial2a.avif"
+tags: ["IA", "Tecnología"]
 ---
 Think Deeper, el nuevo modelo de inteligencia artificial de Microsoft, ya está disponible de forma gratuita para todos los usuarios de Copilot. Este movimiento no solo marca un hito en la competencia de la IA, sino que también desafía a gigantes como OpenAI y DeepSeek al ofrecer una herramienta avanzada sin costos adicionales.
 

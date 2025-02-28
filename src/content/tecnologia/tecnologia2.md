@@ -3,7 +3,7 @@ title: "Nothing Phone 3a : El smartphone transparente que revolucionará la gama
 description: " Nothing Phone 3a llega el 4 de marzo con su icónico diseño transparente, luces LED y potentes especificaciones. ¿Será el rey de la gama media? Descubre todo sobre sus versiones, cámaras y competencia en el mercado."
 pubDate: 2025-2-4
 heroImage: "/img/tecnologia/nothing-phone-ia-tech.avif"
-tags:
+tags: ["IA", "Tecnología"]
 ---
 Nothing Phone (3a): Todo lo que sabemos sobre los nuevos teléfonos transparentes que llegarán en marzo
 La reconocida marca de tecnología Nothing, fundada por Carl Pei, ha confirmado que el próximo 4 de marzo presentará su nueva serie de smartphones: Nothing Phone (3a). Con su distintivo diseño transparente y sistema de iluminación LED, la compañía promete innovaciones que capturarán la atención de los entusiastas de la tecnología.

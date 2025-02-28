@@ -3,6 +3,7 @@ title: "Alibaba lanza un modelo de IA que superaría a DeepSeek: ¿Qué impacto 
 description: "Esta es una descripción breve del Post 1."
 pubDate: 2025-04-01
 heroImage: "/inteligenciaartificial4a.avif"
+tags: ["IA", "Tecnología"]
 ---
 Alibaba lanza un modelo de IA que superaría a DeepSeek: ¿Qué impacto tuvo en las acciones?
 En el mundo de la inteligencia artificial, la competencia es feroz, y los gigantes tecnológicos no dejan de sorprendernos con avances innovadores. Recientemente, Alibaba ha lanzado un nuevo modelo de IA que, según los expertos, podría superar en capacidades a DeepSeek, uno de los sistemas más avanzados hasta la fecha. Este anuncio no solo ha generado revuelo en la comunidad tecnológica, sino que también ha tenido un impacto significativo en el mercado financiero.

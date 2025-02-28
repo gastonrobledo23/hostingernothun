@@ -1,0 +1,51 @@
+---
+import { getCollection } from 'astro:content';
+
+// Cargar las colecciones
+const postsTech = await getCollection('explora');
+
+// Unir los posts de todas las categorías
+const allPosts = [...postsTech];
+
+// Filtrar y ordenar los posts por fecha
+const sortedPosts = allPosts
+  .filter((post) => !!post.data.pubDate)
+  .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
+
+// Obtener los últimos 4 posts
+const latestPosts = sortedPosts.slice(0, 4);
+
+// Función para obtener la URL correcta de cada post
+const getPostUrl = (post) => {
+  if (postsTech.includes(post)) return `/explora/${post.id}/`;
+  
+  return `/${post.id}/`; // fallback
+};
+
+// Imagen predeterminada en caso de no existir heroImage
+const defaultImage = '/path/to/default-image.jpg'; 
+---
+
+<section class="latest-posts m-4">
+  <h2 class="text-2xl font-bold mb-4 text-center">Te puede interesar</h2>
+  <ul class="flex flex-col space-y-4">
+    {latestPosts.map((post) => (
+      <li class="w-full relative">
+        <a href={getPostUrl(post)} class="block bg-white border border-gray-200 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <div class="relative">
+            <img
+              class="w-full h-56 object-cover rounded-t-lg"
+              src={post.data.heroImage || defaultImage}
+              alt={post.data.title}
+            />
+            <!-- Degradado en la parte inferior -->
+            <div class="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-black to-transparent rounded-b-lg"></div>
+            <h4 class="absolute bottom-2 left-0 right-0 text-white text-lg font-semibold text-center px-4">
+              {post.data.title}
+            </h4>
+          </div>
+        </a>
+      </li>
+    ))}
+  </ul>
+</section>
