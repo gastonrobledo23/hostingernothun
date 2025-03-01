@@ -3,34 +3,48 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-const actionUrl = "https://formspree.io/f/xzzdggwb"; // Reemplázalo con tu URL de Formspree
-
 ---
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<meta name="google-adsense-account" content="ca-pub-4385740960461087">
-	</head>
-	<body>
-		<Header />
+<head>
+  <BaseHead title="Política de Cookies | {SITE_TITLE}" description="Política de cookies de nuestro sitio web." />
+</head>
+<body>
+  <Header />
 
-<form action={actionUrl} method="POST" class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-md mt-5">
-  <label class="block mb-2 font-semibold">Tu Correo:</label>
-  <input type="email" name="email" required class="w-full p-2 border rounded-md">
+  <main class="container mx-auto px-4 py-6">
+    <h1 class="text-3xl font-bold mb-6">Política de Cookies</h1>
 
-  <label class="block mt-4 mb-2 font-semibold">Título:</label>
-  <input type="text" name="titulo" required class="w-full p-2 border rounded-md">
+    <section>
+      <p class="text-lg mb-4">
+        En este sitio web utilizamos cookies para mejorar tu experiencia de navegación y analizar el tráfico web. Al continuar navegando en este sitio, aceptas el uso de cookies según se describe a continuación.
+      </p>
 
-  <label class="block mt-4 mb-2 font-semibold">Mensaje:</label>
-  <textarea name="mensaje" required class="w-full p-2 border rounded-md h-32"></textarea>
+      <h2 class="text-2xl font-semibold mb-4">1. ¿Qué son las Cookies?</h2>
+      <p class="mb-4">
+        Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo al visitar sitios web. Ayudan a mejorar la experiencia del usuario y a recordar tus preferencias.
+      </p>
 
-  <button type="submit" class="mt-4 w-full bg-blue-500 text-white p-2 rounded-md">Enviar</button>
-</form>
+      <h2 class="text-2xl font-semibold mb-4">2. Tipos de Cookies que Utilizamos</h2>
+      <ul class="list-disc pl-6 mb-4">
+        <li>Cookies técnicas: necesarias para el funcionamiento del sitio web.</li>
+        <li>Cookies analíticas: utilizadas para analizar el uso del sitio web y mejorar nuestros servicios.</li>
+        <li>Cookies de publicidad: utilizadas para mostrar anuncios personalizados.</li>
+      </ul>
 
-		  
-		<Footer />
-	</body>
+      <h2 class="text-2xl font-semibold mb-4">3. Gestión de Cookies</h2>
+      <p class="mb-4">
+        Puedes configurar tu navegador para bloquear las cookies o eliminar las cookies almacenadas. Sin embargo, esto puede afectar la funcionalidad del sitio web.
+      </p>
+
+      <h2 class="text-2xl font-semibold mb-4">4. Consentimiento</h2>
+      <p class="mb-4">
+        Al utilizar este sitio web, consientes el uso de cookies según lo indicado en esta política.
+      </p>
+    </section>
+  </main>
+
+  <Footer />
+</body>
 </html>
-

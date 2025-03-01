@@ -59,4 +59,17 @@ const inteligenciaartificial = defineCollection({
 	  tags: z.array(z.string()).optional(), // Agregar esto
 	}),
   });
-export const collections = { blog,inteligenciaartificial,tecnologia,explora,viral };
+
+  const recurso = defineCollection({
+	loader: glob({ base: './src/content/viral', pattern: '**/*.{md,mdx}' }),
+	schema: z.object({
+	  title: z.string(),
+	  description: z.string(),
+	  pubDate: z.coerce.date(), // Convierte strings a Date
+	  updatedDate: z.coerce.date().optional(), // Fecha de actualización (opcional)
+	  heroImage: z.string().optional(), // Imagen destacada (opcional)
+	  tags: z.array(z.string()).optional(), // Agregar esto
+	}),
+  });
+
+export const collections = { blog,inteligenciaartificial,tecnologia,explora,viral,recurso };

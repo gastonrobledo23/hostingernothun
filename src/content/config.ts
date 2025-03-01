@@ -63,7 +63,20 @@ const viralCollection = defineCollection({
 });
 
 
+const recursoCollection = defineCollection({
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    pubDate: z.date(),
+    updatedDate: z.date().optional(),
+    heroImage: z.string().optional(),
+    tags: z.array(z.string()).optional()
+  }),
+});
+
+
 export const collections = {
+  recurso: recursoCollection,
   viral:viralCollection,
   explora: exploraCollection, 
   blog: blogCollection,

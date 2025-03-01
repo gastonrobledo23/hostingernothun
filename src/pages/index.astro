@@ -9,13 +9,17 @@ import Carousel from "../components/Carousel.astro";
 import { getCollection } from 'astro:content';
 import CookieBanner from '../components/CookieBanner.astro';
 import LatestContent from '../components/LatestContent.astro';
-const posts = await getCollection('blog');
+import Recurso from "../components/Recurso.astro";
 
+
+
+const posts = await getCollection('blog');
 // Obtener posts de las tres carpetas
 const postsIA = await getCollection('inteligenciaartificial');
 const postsBlog = await getCollection('blog');
 const postsTech = await getCollection('tecnologia');
 const viralPosts = await getCollection('viral'); 
+const recursoPosts = await getCollection('recurso'); 
 // Unir los posts de todas las categorías
 const allPosts = [...postsIA, ...postsBlog, ...postsTech];
 // Filtrar y ordenar los posts por fecha (usando getTime para realizar la resta)
@@ -34,8 +38,10 @@ const getPostUrl = (post: any) => {
   if (postsIA.includes(post)) return `/inteligenciaartificial/${post.id}/`;
   if (postsBlog.includes(post)) return `/blog/${post.id}/`;
   if (postsTech.includes(post)) return `/tecnologia/${post.id}/`;
+  if (viralPosts.includes(post)) return `/viral/${post.id}/`; 
+  if (recursoPosts.includes(post)) return `/recurso/${post.id}/`;
   return `/${post.id}/`; // fallback
-};
+}; //Improtante para agregar mas /////////////////////////// ,,...
 
 // Simulación de datos de artículos (puedes reemplazarlos con datos dinámicos POST COSTADO)
 const sidebarPosts = sortedPosts.slice(0, 6); // Obtiene los 3 posts más recientes para la barra lateral
@@ -147,25 +153,27 @@ const ultimasEntradas = [
   </section>
   
   <section class="latest-posts m-4">
-	<h2 class="text-2xl font-bold mb-4">Últimos Posts</h2>
-	<ul class="grid grid-cols-2 gap-4 list-none p-0 m-0 md:grid-cols-2 sm:grid-cols-2 lg:grid-cols-4">
-		{
-		  latestPosts.map((post) => (
-			  <li class="w-full mb-4">
-				<a href={`/viral/${post.id}/`} class="block bg-white border rounded-lg shadow-lg hover:shadow-xl transition duration-300">
-				  <img class="w-full h-56 object-cover rounded-t-lg" src={post.data.heroImage} alt={post.data.title} />
-				  <div class="p-4">
-					  <h4 class="text-xl font-semibold text-gray-900">{post.data.title}</h4>
-					  <p class="text-gray-500 mt-2">
-						  <FormattedDate date={post.data.pubDate} />
-					  </p>
-				  </div>
-				</a>
-			  </li>
-			))
-		}
+	<h2 class="text-2xl font-bold mb-4">Últimas Noticias</h2>
+	<ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+		{viralPosts.map((post) => (
+		  <li class="w-full">
+			<a href={getPostUrl(post)} class="block bg-white border border-gray-200 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+			  <img class="w-full h-56 object-cover rounded-t-lg" src={post.data.heroImage} alt={post.data.title} />
+			  <div class="p-4">
+				<h4 class="text-lg font-semibold text-gray-900">{post.data.title}</h4>
+				<p class="text-sm text-gray-500 mt-2">
+				  <FormattedDate date={post.data.pubDate} />
+				</p>
+			  </div>
+			</a>
+		  </li>
+		))}
 	  </ul>
+	  
   </section>
+
+   <Recurso />
+
   <CookieBanner />
 	<Footer />
 </body>
@@ -194,4 +202,6 @@ const ultimasEntradas = [
 	.tag:hover {
 		background-color: #005f99;
 	}
+
+	
 </style>

@@ -1,0 +1,52 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <BaseHead title="Política de Privacidad | {SITE_TITLE}" description="Política de privacidad de nuestro sitio web." />
+</head>
+<body>
+  <Header />
+
+  <main class="container mx-auto px-4 py-6">
+    <h1 class="text-3xl font-bold mb-6">Política de Privacidad</h1>
+
+    <section>
+      <p class="text-lg mb-4">
+        En Nothun, respetamos tu privacidad y nos comprometemos a proteger tu información personal. A continuación, te explicamos cómo recopilamos, utilizamos y protegemos tus datos.
+      </p>
+      <h2 class="text-2xl font-semibold mb-4">1. Información que Recopilamos</h2>
+      <p class="mb-4">
+        Recopilamos información personal que nos proporcionas directamente cuando te registras en nuestro sitio, completas formularios o interactúas con nuestras funcionalidades. Esto puede incluir tu nombre, dirección de correo electrónico, entre otros.
+      </p>
+
+      <h2 class="text-2xl font-semibold mb-4">2. Uso de la Información</h2>
+      <p class="mb-4">
+        Utilizamos la información recopilada para personalizar tu experiencia, responder a tus solicitudes y mejorar nuestros servicios.
+      </p>
+
+      <h2 class="text-2xl font-semibold mb-4">3. Seguridad de la Información</h2>
+      <p class="mb-4">
+        Tomamos medidas adecuadas para proteger tu información personal contra acceso no autorizado, alteración o destrucción.
+      </p>
+
+      <h2 class="text-2xl font-semibold mb-4">4. Cookies</h2>
+      <p class="mb-4">
+        Nuestro sitio utiliza cookies para mejorar tu experiencia. Puedes configurar tu navegador para rechazar cookies si así lo prefieres.
+      </p>
+
+      <h2 class="text-2xl font-semibold mb-4">5. Contacto</h2>
+      <p class="mb-4">
+        Si tienes alguna pregunta sobre nuestra Política de Privacidad, no dudes en contactarnos a través de [correo electrónico].
+      </p>
+    </section>
+  </main>
+
+  <Footer />
+</body>
+</html>
