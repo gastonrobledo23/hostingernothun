@@ -5,7 +5,9 @@ import Footer from '../../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import FormattedDate from '../../components/FormattedDate.astro';
 import { getCollection } from 'astro:content';
+import Recurso from "../../components/Recurso.astro";
 
+const recursoPosts = await getCollection('recurso'); 
 const posts = await getCollection('explora');
 
 // Filtrar y ordenar los posts
@@ -28,7 +30,7 @@ const latestPosts = sortedPosts.slice(0, 4);
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4385740960461087" crossorigin="anonymous"></script>
 	</head>
-	<body>
+	<>
 		<Header />
 		
 		<main>
@@ -74,6 +76,8 @@ const latestPosts = sortedPosts.slice(0, 4);
 				}
 			</ul>
 		</section>
+		
+		<Recurso/>
 		<Footer />
 	</body>
 </html>

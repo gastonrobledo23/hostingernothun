@@ -28,7 +28,7 @@ const sortedPosts = allPosts
   .sort((a: any, b: any) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
 
   // Obtener los últimos 4 posts
-const latestPosts = sortedPosts.slice(0, 4);
+const latestPosts = sortedPosts.slice(0, 8);
 // Obtener todas las etiquetas únicas
 const allTags = [...new Set(posts.flatMap(post => post.data.tags || []))];
 
@@ -71,6 +71,11 @@ const ultimasEntradas = [
 	<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4385740960461087"
  crossorigin="anonymous"></script>
+
+ <link rel="icon" type="image/x-icon" href="/img/nothunailogo.ico">
+ <link rel="apple-touch-icon" sizes="180x180" href="/img/nothunailogo.ico">
+ <link rel="shortcut icon" href="/img/nothunailogo.ico">
+ 
 </head>
 <body>
 	<Header />
@@ -96,7 +101,7 @@ const ultimasEntradas = [
 			<ul class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 			  {posts.map((post) => (
 				<li>
-				  <a href={`/inteligenciaartificial/${post.id}`} class="block">
+				  <a href={`/blog/${post.id}`} class="block">
 					<img class="w-full h-auto" src={post.data.heroImage} alt="" />
 					<h4 class="title mt-2 text-lg font-bold">{post.data.title}</h4>
 					<p class="date text-gray-500">
@@ -155,7 +160,7 @@ const ultimasEntradas = [
   <section class="latest-posts m-4">
 	<h2 class="text-2xl font-bold mb-4">Últimas Noticias</h2>
 	<ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-		{viralPosts.map((post) => (
+		{postsTech.map((post) => (
 		  <li class="w-full">
 			<a href={getPostUrl(post)} class="block bg-white border border-gray-200 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
 			  <img class="w-full h-56 object-cover rounded-t-lg" src={post.data.heroImage} alt={post.data.title} />

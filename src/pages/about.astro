@@ -4,33 +4,52 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 const actionUrl = "https://formspree.io/f/xzzdggwb"; // Reemplázalo con tu URL de Formspree
-
 ---
 
 <!doctype html>
 <html lang="es">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<meta name="google-adsense-account" content="ca-pub-4385740960461087">
-	</head>
-	<body>
-		<Header />
-
-<form action={actionUrl} method="POST" class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-md mt-5">
-  <label class="block mb-2 font-semibold">Tu Correo:</label>
-  <input type="email" name="email" required class="w-full p-2 border rounded-md">
-
-  <label class="block mt-4 mb-2 font-semibold">Título:</label>
-  <input type="text" name="titulo" required class="w-full p-2 border rounded-md">
-
-  <label class="block mt-4 mb-2 font-semibold">Mensaje:</label>
-  <textarea name="mensaje" required class="w-full p-2 border rounded-md h-32"></textarea>
-
-  <button type="submit" class="mt-4 w-full bg-blue-500 text-white p-2 rounded-md">Enviar</button>
-</form>
-
-		  
-		<Footer />
-	</body>
+<head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <meta name="google-adsense-account" content="ca-pub-4385740960461087">
+</head>
+<body>
+    <Header />
+</br>
+    <h2 class="text-xl font-semibold mb-4 text-center">Contacto</h2>
+    <div class="max-w-4xl mx-auto flex flex-col md:flex-row gap-8 bg-white p-6 rounded-lg shadow-md mt-5">
+        <!-- Sección de contacto -->
+        <form action={actionUrl} method="POST" class="w-full md:w-1/2">
+            
+            <p class="text-gray-600 mb-4">Completa el formulario proporcionado para facilitar la comunicación.</p>
+            
+            <label class="block mb-2 font-semibold">Tu Correo:</label>
+            <input type="email" name="email" required class="w-full p-2 border rounded-md">
+            
+            <label class="block mt-4 mb-2 font-semibold">Título:</label>
+            <input type="text" name="titulo" required class="w-full p-2 border rounded-md">
+            
+            <label class="block mt-4 mb-2 font-semibold">Mensaje:</label>
+            <textarea name="mensaje" required class="w-full p-2 border rounded-md h-32"></textarea>
+            
+            <button type="submit" class="mt-4 w-full bg-blue-500 text-white p-2 rounded-md">Enviar</button>
+        </form>
+        
+        <!-- Sección de información sobre Nothun -->
+        <div class="w-full md:w-1/2 bg-gray-100 p-4 rounded-lg">
+            <h2 class="text-xl font-semibold mb-4">¿Quiénes Somos?</h2>
+            <p class="text-gray-600 mb-2">
+                Nothun.com es tu fuente confiable para estar al día con las últimas noticias en tecnología, inteligencia artificial, robótica y avances digitales.
+            </p>
+            <p class="text-gray-600 mb-2">
+                Nos apasiona mantenerte informado sobre las tendencias más recientes, gadgets innovadores y el impacto de la tecnología en la sociedad.
+            </p>
+            <p class="text-gray-600">
+                Explora nuestro contenido y únete a la conversación sobre el futuro tecnológico.
+            </p>
+			<p class="text-gray-600">Si quieres colaborar con nosotros o promocionar tu marca en nuestra plataforma, contáctanos. Estaremos encantados de escuchar tu propuesta.</p>
+        </div>
+    </div>
+    
+    <Footer />
+</body>
 </html>
-

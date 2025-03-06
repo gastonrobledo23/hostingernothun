@@ -5,33 +5,64 @@ import "swiper/css/pagination";
 import "swiper/css/autoplay";
 
 const noticias = [
-  { titulo: "DeepSeek desafía a OpenAI", imagen: "/img/tecnologia/tecnologia1a.avif", enlace: "/tecnologia/tecnologia1/" },
-  { titulo: "Nuevas IA revolucionarias", imagen: "/inteligenciaartificial2a.avif", enlace: "/blog/inteligenciaartificial2/" },
+  { titulo: "DeepSeek desafía a OpenAI", imagen: "/img/inteligenciaartificial/DeepSeek-la-innovadora-IA-china-que-amenaza-a-ChatGPT.avif", enlace: "/inteligenciaartificial/deepseek-la-innovadora-ia-china-que-amenaza-a-chatgpt" },
+  { titulo: "Contrasenas mas hackeadas", imagen: "img/blog/contrasenas-mas-hackeadas-1b.avif", enlace: "/blog/contrasenas-mas-hackeadas-1/" },
   { titulo: "El futuro de la IA en 2025", imagen: "/inteligenciaartificial5a.avif", enlace: "/blog/inteligenciaartificial5/" }
 ];
 ---
 
 <style>
-  /* Estilo para los botones de navegación */
-  .swiper-button-next,
-  .swiper-button-prev {
+  .swiper-container {
+    max-width: 750px;
+    margin: 0 auto;
+    padding-bottom: 0.5rem;
+    padding-top: 1rem;
+  }
+
+  .swiper-slide {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .swiper-slide img {
+    width: 100%;
+    height: 45%; /*ancho imagen */
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  /* 🔹 Ajuste del degradado y título */
+  .titulo-overlay {
+    position: absolute;
+    bottom: 15%; /* 📌 Título un poco más abajo */
+    left: 50%;
+    transform: translate(-50%, 50%);
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem; /* 📌 Título más grande */
+  }
+
+  /* 🔹 Degradado cubriendo bien el fondo del título */
+  .titulo-bg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%; /* 📌 Cubre bien el fondo del título */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0) 100%);
+  }
+
+  .swiper-button-next, .swiper-button-prev {
     color: white !important;
     filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
   }
 
-  .swiper-button-next:hover,
-  .swiper-button-prev:hover {
+  .swiper-button-next:hover, .swiper-button-prev:hover {
     color: #f0f0f0;
-  }
-   /* Aumentar la altura de las imágenes */
-  .swiper-slide img {
-    height: 45%; /* Altura ajustable según lo que necesites */
-  }
-  /* Limitar el tamaño máximo del carrusel */
-  .swiper-container {
-    max-width: 750px;
-    margin: 0 auto; /* Centrar el carrusel */
-    padding-top: 0.05vh;
   }
 </style>
 
@@ -40,8 +71,9 @@ const noticias = [
     {noticias.map(noticia => (
       <div class="swiper-slide">
         <a href={noticia.enlace}>
-          <img src={noticia.imagen} alt={noticia.titulo} class="w-full h-16rem object-cover rounded-lg shadow-md" />
-          <h3 class="mt-2 text-lg font-bold text-center text-white">{noticia.titulo}</h3>
+          <img src={noticia.imagen} alt={noticia.titulo} />
+          <div class="titulo-bg"></div> <!-- Degradado de fondo -->
+          <h3 class="titulo-overlay">{noticia.titulo}</h3>
         </a>
       </div>
     ))}

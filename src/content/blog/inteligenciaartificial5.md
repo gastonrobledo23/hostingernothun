@@ -1,7 +1,7 @@
 ---
 title: "Las 5 habilidades esenciales para el futuro, según la inteligencia artificial"
 description: "Cuáles son las habilidades clave que la inteligencia artificial predice como esenciales para el futuro. Desde la alfabetización digital hasta la creatividad, prepárate para los cambios que vienen y asegura tu relevancia en el mundo del mañana."
-pubDate: 2025-02-01
+pubDate: 2025-03-07
 heroImage: "/inteligenciaartificial5a.avif"
 tags: ["IA", "Tecnología"]
 ---

@@ -61,7 +61,7 @@ const inteligenciaartificial = defineCollection({
   });
 
   const recurso = defineCollection({
-	loader: glob({ base: './src/content/viral', pattern: '**/*.{md,mdx}' }),
+	loader: glob({ base: './src/content/recurso', pattern: '**/*.{md,mdx}' }),
 	schema: z.object({
 	  title: z.string(),
 	  description: z.string(),

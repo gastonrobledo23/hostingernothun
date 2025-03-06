@@ -4,9 +4,38 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
+  import Recurso from "../components/Recurso.astro";
+  import LatestContent from '../components/LatestContent.astro';
+  import { getCollection } from 'astro:content';
+
+  const posts = await getCollection('blog');
+// Obtener posts de las tres carpetas
+const postsIA = await getCollection('inteligenciaartificial');
+const postsBlog = await getCollection('blog');
+const postsTech = await getCollection('tecnologia');
+const viralPosts = await getCollection('viral'); 
+const recursoPosts = await getCollection('recurso'); 
+
+const getPostUrl = (post: any) => {
+  if (postsIA.includes(post)) return `/inteligenciaartificial/${post.id}/`;
+  if (postsBlog.includes(post)) return `/blog/${post.id}/`;
+  if (postsTech.includes(post)) return `/tecnologia/${post.id}/`;
+  if (viralPosts.includes(post)) return `/viral/${post.id}/`; 
+  if (recursoPosts.includes(post)) return `/recurso/${post.id}/`;
+  return `/${post.id}/`; // fallback
+};
+// Unir los posts de todas las categorías
+const allPosts = [...postsIA, ...postsBlog, ...postsTech];
+// Filtrar y ordenar los posts por fecha (usando getTime para realizar la resta)
+const sortedPosts = allPosts
+  .filter((post: any) => !!post.data.pubDate)
+  .sort((a: any, b: any) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
 
 const { title, description, pubDate, updatedDate, heroImage, tags = [] } = 
   Astro.props as CollectionEntry<'blog'>['data'];
+  const sidebarPosts = sortedPosts.slice(0, 6); // Obtiene los 3 posts más recientes para la barra lateral
+
+
 
 ---
 
@@ -115,6 +144,36 @@ const { title, description, pubDate, updatedDate, heroImage, tags = [] } =
             </div>
         </article>
     </main>
+    <section class="w-full flex flex-col lg:flex-row justify-center gap-6 mx-auto px-4">
+        <!-- Últimas Entradas -->
+        <section class="bg-gray-100 p-4 rounded-lg shadow-lg w-full lg:w-1/2">
+          <h2 class="text-xl font-semibold mb-3 text-blue-600">📌 Últimas Entradas</h2>
+          <ul class="list-none space-y-2">
+            {sidebarPosts.map((post) => (
+              <li class="flex items-start space-x-4">
+                <!-- Imagen con tamaño fijo y sin deformarse -->
+                <img src={post.data.heroImage} alt={post.data.title} class="w-20 h-20 object-cover rounded-lg" />
+                
+                <!-- Enlace con texto completo pero sin deformar el contenedor -->
+                <a href={getPostUrl(post)} class="text-blue-600 text-[0.95rem] hover:underline block w-full">
+                  <span class="block overflow-hidden text-ellipsis">{post.data.title}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      
+        <!-- Latest Content -->
+        <LatestContent class="w-full lg:w-1/2" />
+      </section>
+      
+      
+    <aside class="w-full md:w-1/3 xl:w-1/4 flex">
+        
+        
+      </aside>
+      
+    <Recurso/>
     <Footer />
 </body>
 </html>

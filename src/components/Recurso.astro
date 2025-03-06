@@ -8,13 +8,16 @@ const recursoPosts = await getCollection('recurso');
 const latestRecursos = recursoPosts
   .filter((post) => post.data.pubDate instanceof Date) // Asegurar que pubDate es Date
   .sort((a, b) => new Date(b.data.pubDate!).getTime() - new Date(a.data.pubDate!).getTime())
-  .slice(0, 8);
+  .slice(0, 8); // Asegúrate de que solo se obtienen los 8 primeros
 
 // Definir el tipo de post para evitar errores de 'any'
 const getPostUrl = (post: CollectionEntry<'recurso'>) => `/recurso/${post.id}/`;
+
+console.log(recursoPosts.length); // Esto debería mostrar la cantidad de posts en la colección 'recurso'
+
 ---
 
-<section class="latest-resources m-4">
+<section class="latest-resources m-4 bg-gray-100 p-6 rounded-lg shadow-lg">
   <h2 class="text-2xl font-bold mb-4 text-center">📚 Recursos & Herramientas</h2>
   <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
     {latestRecursos.map((post) => (
@@ -31,4 +34,5 @@ const getPostUrl = (post: CollectionEntry<'recurso'>) => `/recurso/${post.id}/`;
       </li>
     ))}
   </ul>
+  
 </section>

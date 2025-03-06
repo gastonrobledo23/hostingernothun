@@ -1,8 +1,8 @@
 ---
 title: "Tesla Lanza Servicio de Taxis Autónomos en Austin para Junio de 2025"
 description: "Tesla planea introducir un servicio de taxis sin conductor en Austin, Texas, en junio de 2025, marcando un paso importante hacia la conducción totalmente autónoma, con vehículos operando sin intervención humana."
-pubDate: 2025-02-01
-heroImage: "/img/tecnologia/tecnologia1a.avif"
+pubDate: 2025-02-20
+heroImage: "/img/tecnologia/Tesla-Lanza-Servicio-de-Taxis-Autónomos-en-Austin-1a.avif"
 tags: ["IA", "Tecnología"]
 ---
 Tesla tiene previsto lanzar un servicio de taxis sin conductor en Austin, Texas, a partir de junio de 2025, según lo anunció Elon Musk durante una llamada de conferencia posterior a los resultados trimestrales de la compañía, informó Azernews.

@@ -1,7 +1,7 @@
 ---
 title: "Alibaba lanza un modelo de IA que superaría a DeepSeek: ¿Qué impacto tuvo en las acciones?"
 description: "Esta es una descripción breve del Post 1."
-pubDate: 2025-04-01
+pubDate: 2025-03-01
 heroImage: "/inteligenciaartificial4a.avif"
 tags: ["IA", "Tecnología"]
 ---

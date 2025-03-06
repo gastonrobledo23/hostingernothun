@@ -1,17 +1,23 @@
 ---
 title: "Microsoft regala su IA más inteligente: ¡Think Deeper ya está gratis en Copilot!"
 description: "Microsoft acaba de cambiar las reglas del juego en la inteligencia artificial. Con Think Deeper, su nuevo modelo de razonamiento avanzado, ahora puedes acceder a una IA que no solo responde, sino que piensa como nunca antes. Y lo mejor: ¡es totalmente gratis para todos los usuarios de Copilot! "
-pubDate: 2025-02-01
+pubDate: 2025-02-20
 heroImage: "/inteligenciaartificial2a.avif"
 tags: ["IA", "Tecnología"]
 ---
 Think Deeper, el nuevo modelo de inteligencia artificial de Microsoft, ya está disponible de forma gratuita para todos los usuarios de Copilot. Este movimiento no solo marca un hito en la competencia de la IA, sino que también desafía a gigantes como OpenAI y DeepSeek al ofrecer una herramienta avanzada sin costos adicionales.
 
-¿Qué es Think Deeper y por qué es importante?
+<div style="text-align:center; font-size: 1em; font-weight: bold; color: #2c3e50;">
+    <h2>¿Qué es Think Deeper y por qué es importante?</h2>
+</div>
+
+
 
 Think Deeper es el modo "sabio" de Copilot. A diferencia de los modelos tradicionales que responden al instante, este sistema analiza las preguntas desde múltiples ángulos, ofreciendo respuestas más elaboradas y útiles. Imagina una IA que no solo resuelve problemas matemáticos, sino que también te ayuda a planificar tu carrera, gestionar tus finanzas o incluso decidir si es momento de mudarte por ese vecino ruidoso.
 
-Según Mustafa Süleyman, líder de IA en Microsoft, Think Deeper es ideal para:
+<div style="text-align:center; font-size: 1em; font-weight: bold; color: #2c3e50;">
+    <h2>Según Mustafa Süleyman, líder de IA en Microsoft, Think Deeper es ideal para:</h2>
+</div>
 
 1- Resolver problemas complejos: Desde matemáticas avanzadas hasta dilemas filosóficos.
 
@@ -23,7 +29,10 @@ Según Mustafa Süleyman, líder de IA en Microsoft, Think Deeper es ideal para:
 
 En resumen, es como tener un amigo inteligente que siempre piensa antes de responder.
 
-¿Cómo activar Think Deeper en Copilot?
+<div style="text-align:center; font-size: 1em; font-weight: bold; color: #2c3e50;">
+    <h2>¿Cómo activar Think Deeper en Copilot?</h2>
+</div>
+
 Activar esta función es sencillo:
 
 1-Abre Copilot en la web o en la app móvil.
@@ -34,6 +43,7 @@ Activar esta función es sencillo:
 
 Espera unos 30 segundos mientras la IA procesa tu pregunta.
 <img src="/inteligenciaartificial2b.avif" alt="DeepSeek y privacidad" width="100%" style="display:block; margin:auto; border-radius:12px;">
+</br>
 Microsoft recomienda usar Think Deeper para consultas serias o complejas. Si buscas información rápida, como la edad de Bad Bunny, la versión estándar de Copilot sigue siendo la mejor opción.
 
 El gran movimiento de Microsoft en la guerra de la IA
@@ -41,5 +51,9 @@ Con este lanzamiento, Microsoft desafía a OpenAI y DeepSeek, que hasta ahora do
 
 Esta estrategia no solo democratiza el acceso a una IA avanzada, sino que también podría cambiar la forma en que interactuamos con la tecnología. Una IA que razona antes de responder podría ser clave en ámbitos como la educación, la salud y la toma de decisiones empresariales.
 
-Conclusión
+
+<div style="text-align:center; font-size: 1em; font-weight: bold; color: #2c3e50;">
+    <h2>Conclusión</h2>
+</div>
+
 Microsoft ha dado un golpe maestro al ofrecer Think Deeper de forma gratuita. Este modelo no solo promete respuestas más profundas, sino que también refuerza la lealtad de los usuarios hacia su ecosistema. En un mundo de respuestas rápidas y superficiales, una IA que piensa antes de hablar es un lujo que ahora está al alcance de todos.
